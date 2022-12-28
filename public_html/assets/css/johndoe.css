@@ -11683,3 +11683,38 @@ pre .code {
   display: block;
   margin-top: 10px;
 }
+.map_text {
+  width: 100%;
+  float: left;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.map_text a {
+  color: #ffffff;
+}
+
+.map_text a:hover {
+  color: #ffffff;
+}
+.margin_top_90 {
+  margin-top: 90px;
+}
+.layout_padding {
+  padding-top: 90px;
+  padding-bottom: 0px;
+}
+.footer_section {
+  width: 100%;
+  float: left;
+  background-color: #343a40 !important;
+  height: auto;
+  padding: 70px 0px 50px 0px;
+}
+.footer_section.layout_padding a {
+  display: flex;
+  align-items: center;
+}
+.padding_left_10 {
+  padding-left: 10px;
+}
