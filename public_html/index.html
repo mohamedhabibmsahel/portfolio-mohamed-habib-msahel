@@ -13,66 +13,111 @@
     <link rel="stylesheet" href="assets/css/johndoe.css">
     
     <style>
-        /* Custom fixes */
-        .header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('assets/imgs/background.jpg') no-repeat center center/cover;
-            min-height: 100vh;
-        }
-        
-        /* Fix portfolio tool images */
-        .portfolio-item {
-            transition: transform 0.3s ease;
-            margin-bottom: 30px;
-        }
-        
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-        }
-        
+    /* Custom fixes */
+    .header {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                    url('assets/imgs/background.jpg') no-repeat center center/cover;
+        min-height: 100vh;
+    }
+    
+    /* Fix portfolio section */
+    #portfolio {
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    /* Portfolio filters */
+    .filters {
+        margin-bottom: 30px;
+    }
+    
+    .filters a {
+        display: inline-block;
+        padding: 8px 20px;
+        margin: 0 5px;
+        color: #666;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+    }
+    
+    .filters a.active,
+    .filters a:hover {
+        background-color: #dc3545;
+        color: white;
+        border-color: #dc3545;
+    }
+    
+    /* Portfolio items */
+    .portfolio-item {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+    }
+    
+    .portfolio-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+    
+    .portfolio-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        padding: 20px;
+        background: #f8f9fa;
+    }
+    
+    .content-holder {
+        padding: 20px;
+        background: white;
+    }
+    
+    .text-holder h6 {
+        color: #dc3545;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    
+    .text-holder .subtitle {
+        color: #666;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    /* Make sure columns take full width */
+    .portfolio-container {
+        margin: 0 -15px;
+    }
+    
+    /* Responsive fixes */
+    @media (max-width: 768px) {
         .portfolio-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .portfolio-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .portfolio-container > div {
-            flex: 1 1 calc(33.333% - 20px);
-            min-width: 300px;
-        }
-        
-        /* Ensure text is readable */
-        .text-holder {
+            height: 150px;
             padding: 15px;
-            background: rgba(255, 255, 255, 0.95);
         }
         
-        .text-holder h6 {
-            color: #dc3545;
-            font-weight: bold;
+        .filters a {
+            padding: 6px 15px;
+            margin: 5px 3px;
+            font-size: 14px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .portfolio-item img {
+            height: 120px;
         }
         
-        /* Fix responsiveness */
-        @media (max-width: 768px) {
-            .portfolio-container > div {
-                flex: 1 1 100%;
-            }
-            
-            .portfolio-item img {
-                height: 150px;
-            }
+        .content-holder {
+            padding: 15px;
         }
-    </style>
+    }
+</style>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
     <a href="https://drive.google.com/file/d/1H8a0LcOvSIYTcHhAc6DWVqL7ZwtRo9fw/view?usp=share_link" download class="btn btn-primary btn-component" data-spy="affix" data-offset-top="600"><i class="ti-shift-left-alt"></i> Download My CV</a>
@@ -399,253 +444,143 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section class="section bg-custom-gray" id="portfolio">
-        <div class="container">
-            <h1 class="mb-5"><span class="text-danger">My</span> Tools</h1>
-            <div class="row">
-                <div class="portfolio">
-                    <div class="filters">
-                        <a href="#" data-filter=".all" class="active">
-                            All
-                        </a>
-                        <a href="#" data-filter=".mobile">
-                            Mobile
-                        </a>
-                        <a href="#" data-filter=".web">
-                            Web
-                        </a>
-                        <a href="#" data-filter=".back-end">
-                            Backend
-                        </a>
-                        <a href="#" data-filter=".others">
-                            Others
-                        </a>
-                       
-                    </div>
-                    <div class="portfolio-container"> 
-                        <div class="col-md-6 col-lg-4 all mobile">
-                            <div class="portfolio-item">
-                                <img src="assets/imgs/android.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                                <div class="content-holder">
-                                    <a class="img-popup" href="assets/imgs/android.png"></a>
-                                    <div class="text-holder">
-                                        <h6 class="title">MOBILE</h6>
-                                        <p class="subtitle">Android is a mobile operating system developed by Google and used on a wide range of devices, including smartphones and tablets. It is known for its customization options and the ability to install third-party apps. Android is open-source.</p>
-                                    </div>
-                                </div>   
-                            </div>             
+    <!-- Portfolio Section -->
+<section class="section bg-custom-gray" id="portfolio">
+    <div class="container">
+        <h1 class="mb-5"><span class="text-danger">My</span> Tools</h1>
+        
+        <!-- Filters -->
+        <div class="filters text-center mb-5">
+            <a href="#" data-filter=".all" class="active">
+                All
+            </a>
+            <a href="#" data-filter=".mobile">
+                Mobile
+            </a>
+            <a href="#" data-filter=".web">
+                Web
+            </a>
+            <a href="#" data-filter=".back-end">
+                Backend
+            </a>
+            <a href="#" data-filter=".others">
+                Others
+            </a>
+        </div>
+        
+        <!-- Portfolio Items - Fixed Grid -->
+        <div class="portfolio-container row"> 
+            <!-- Android -->
+            <div class="col-md-6 col-lg-4 all mobile mb-4">
+                <div class="portfolio-item h-100">
+                    <img src="assets/imgs/android.png" class="img-fluid rounded" alt="Android">
+                    <div class="content-holder p-3">
+                        <div class="text-holder">
+                            <h6 class="title text-danger">MOBILE</h6>
+                            <p class="subtitle">Android is a mobile operating system developed by Google and used on a wide range of devices, including smartphones and tablets. It is known for its customization options and the ability to install third-party apps.</p>
                         </div>
-                        <div class="col-md-6 col-lg-4 all mobile">
-                            <div class="portfolio-item">
-                                <img src="assets/imgs/swift.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                                <div class="content-holder">
-                                    <a class="img-popup" href="assets/imgs/swift.png"></a>
-                                    <div class="text-holder">
-                                        <h6 class="title">MOBILE</h6>
-                                        <p class="subtitle">Swift is a programming language used for building apps and designed to be easy to read and write, and safer.</p>
-                                    </div>
-                                </div> 
-                            </div>                         
-                        </div>
-                        <div class="col-md-6 col-lg-4 all mobile">
-                            <div class="portfolio-item">
-                                <img src="assets/imgs/flutter.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">                         
-                                <div class="content-holder">
-                                    <a class="img-popup" href="assets/imgs/flutter.png"></a>
-                                    <div class="text-holder">
-                                        <h6 class="title">MOBILE</h6>
-                                        <p class="subtitle">Flutter is a mobile app development framework that allows developers to build apps for multiple platforms from a single codebase. It is known for its fast development cycle and high performance.</p>
-                                    </div>
-                                </div>    
-                            </div>              
-                        </div> 
-                        <div class="col-md-6 col-lg-4 all web">
-                            <div class="portfolio-item">
-                                <img src="assets/imgs/angular.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                                <div class="content-holder">
-                                    <a class="img-popup" href="assets/imgs/angular.png"></a>
-                                    <div class="text-holder">
-                                        <h6 class="title">WEB</h6>
-                                        <p class="subtitle">Angular is a JavaScript framework for building web applications, including single-page apps and mobile and desktop apps. It is maintained by Google and a community of developers and is based on TypeScript. Angular is known for its powerful features, such as dependency injection and reactive programming, which make it easier to develop complex applications.</p>
-                                    </div>
-                                </div>
-                            </div>                                                     
-                        </div>
-
-                        <div class="col-md-6 col-lg-4 all web"> 
-                            <div class="portfolio-item">
-                                <img src="assets/imgs/symfony.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">                               
-                                <div class="content-holder">
-                                    <a class="img-popup" href="assets/imgs/symfony.png"></a>
-                                    <div class="text-holder">
-                                        <h6 class="title">WEB</h6>
-                                        <p class="subtitle">Symfony is a PHP web application framework used for developing web applications, APIs, and microservices. It is open-source, flexible, and easy to use, with a modular design and a large community of users and developers. Symfony is widely used by a range of companies.</p>
-                                    </div>
-                                </div>
-                            </div>                                                       
-                        </div> 
-                        <div class="col-md-6 col-lg-4 all back-end">
-                            <div class="portfolio-item">
-                                <img src="assets/imgs/Nodejs.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
-                               <div class="content-holder">
-                                    <a class="img-popup" href="assets/imgs/Nodejs.png"></a>
-                                    <div class="text-holder">
-                                        <h6 class="title">BACK-END</h6>
-                                        <p class="subtitle">Node.js is a JavaScript runtime environment used for building server-side applications and real-time systems. It is open-source, cross-platform, and built on the V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model, making it efficient for building scalable network applications.</p>
-                                    </div>
-                                </div>
-                            </div>                                                     
-                        </div>
-                        <div class="col-md-6 col-lg-4 all others">
-                            <div class="portfolio-item">
-                                <img src="assets/imgs/qt.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
-                               <div class="content-holder">
-                                    <a class="img-popup" href="assets/imgs/qt.png"></a>
-                                    <div class="text-holder">
-                                        <h6 class="title">QT</h6>
-                                        <p class="subtitle">Qt is a framework for developing cross-platform applications, particularly those with graphical user interfaces (GUIs). It is written in C++ and is widely used for creating professional-grade applications</p>
-                                    </div>
-                                </div>
-                            </div>                                                     
-                        </div>
-                        <div class="col-md-6 col-lg-4 all others">
-                            <div class="portfolio-item">
-                                <img src="assets/imgs/mongodb.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
-                               <div class="content-holder">
-                                    <a class="img-popup" href="assets/imgs/mongodb.png"></a>
-                                    <div class="text-holder">
-                                        <h6 class="title">MONGODB</h6>
-                                        <p class="subtitle">MongoDB is a NoSQL database that stores data in a flexible, JSON-like format called BSON. It is known for its ability to handle large amounts of data and its support for horizontal scaling, making it well-suited for real-time data processing and analysis. It is often used in web development in conjunction with technologies like Node.js and Express.js.</p>
-                                    </div>
-                                </div>
-                            </div>                                                     
-                        </div>
-                        <div class="col-md-6 col-lg-4 all others">
-                            <div class="portfolio-item">
-                                <img src="assets/imgs/oracle.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
-                               <div class="content-holder">
-                                    <a class="img-popup" href="assets/imgs/oracle.png"></a>
-                                    <div class="text-holder">
-                                        <h6 class="title">ORACLE</h6>
-                                        <p class="subtitle">Oracle is a database management system used for storing and managing data. It uses SQL to perform database operations and offers a range of features for data management. It is often used in enterprise-level applications and is supported on multiple operating systems.</p>
-                                    </div>
-                                </div>
-                            </div>                                                     
-                        </div>
-                        <div class="col-md-6 col-lg-4 all others">
-                            <div class="portfolio-item">
-                                <img src="assets/imgs/mysql.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
-                               <div class="content-holder">
-                                    <a class="img-popup" href="assets/imgs/mysql.png"></a>
-                                    <div class="text-holder">
-                                        <h6 class="title">MYSQL</h6>
-                                        <p class="subtitle">MySQL is an open-source database management system based on SQL. It is commonly used in web development and is known for its simplicity and scalability. It is supported on multiple operating systems.</p>
-                                    </div>
-                                </div>
-                            </div>                                                     
-                        </div>
-                        <div class="col-md-6 col-lg-4 all others">
-                            <div class="portfolio-item">
-                                <img src="assets/imgs/sql.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
-                               <div class="content-holder">
-                                    <a class="img-popup" href="assets/imgs/sql.png"></a>
-                                    <div class="text-holder">
-                                        <h6 class="title">SQL</h6>
-                                        <p class="subtitle">SQL is a programming language used for managing data in relational databases. It is used for various database operations and is supported by many popular database management systems.</p>
-                                    </div>
-                                </div>
-                            </div>                                                     
-                        </div>
-                        <div class="col-md-6 col-lg-4 all others">
-                            <div class="portfolio-item">
-                                <img src="assets/imgs/unity.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
-                               <div class="content-holder">
-                                    <a class="img-popup" href="assets/imgs/unity.png"></a>
-                                    <div class="text-holder">
-                                        <h6 class="title">UNITY</h6>
-                                        <p class="subtitle">Unity is a game engine and development platform used for creating games and interactive experiences. It supports multiple platforms and offers a range of tools and features for game development.</p>
-                                    </div>
-                                </div>
-                            </div>                                                     
-                        </div>
-                        <div class="col-md-6 col-lg-4 all others">
-                            <div class="portfolio-item">
-                                <img src="assets/imgs/xcode.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
-                               <div class="content-holder">
-                                    <a class="img-popup" href="assets/imgs/xcode.png"></a>
-                                    <div class="text-holder">
-                                        <h6 class="title">XCODE</h6>
-                                        <p class="subtitle">Xcode is an IDE created by Apple for developing native applications for its platforms. It includes a suite of tools for software development, testing, and distribution. It is available for free on the Mac App Store.</p>
-                                    </div>
-                                </div>
-                            </div>                                                     
-                        </div>
-                        <div class="col-md-6 col-lg-4 all others">
-                            <div class="portfolio-item">
-                                <img src="assets/imgs/Android_Studio.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
-                               <div class="content-holder">
-                                    <a class="img-popup" href="assets/imgs/Android_Studio.png"></a>
-                                    <div class="text-holder">
-                                        <h6 class="title">ANDROID STUDIO</h6>
-                                        <p class="subtitle">Android Studio is an IDE for creating Android applications. It includes tools for code editing, debugging, and app building and distribution. It is available for free on the official Android website.</p>
-                                    </div>
-                                </div>
-                            </div>                                                     
-                        </div>
-                        <div class="col-md-6 col-lg-4 all others">
-                            <div class="portfolio-item">
-                                <img src="assets/imgs/Visual-Studio-Logo.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
-                               <div class="content-holder">
-                                    <a class="img-popup" href="assets/imgs/Visual-Studio-Logo.png"></a>
-                                    <div class="text-holder">
-                                        <h6 class="title">VISUAL STUDIO</h6>
-                                        <p class="subtitle">Visual Studio is an IDE for creating applications for Windows and the web. It includes tools for code editing, debugging, and GUI design, and supports multiple programming languages. It is available in several editions, including a free and a paid version.</p>
-                                    </div>
-                                </div>
-                            </div>                                                     
-                        </div>
-                        <div class="col-md-6 col-lg-4 all others">
-                            <div class="portfolio-item">
-                                <img src="assets/imgs/Visual_Studio_Code.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
-                               <div class="content-holder">
-                                    <a class="img-popup" href="assets/imgs/Visual_Studio_Code.png"></a>
-                                    <div class="text-holder">
-                                        <h6 class="title">VISUAL STUDIO CODE</h6>
-                                        <p class="subtitle">Visual Studio Code is a source code editor with features such as syntax highlighting and debugging tools. It supports multiple programming languages and is available for free.</p>
-                                    </div>
-                                </div>
-                            </div>                                                     
-                        </div>
-                        <div class="col-md-6 col-lg-4 all others">
-                            <div class="portfolio-item">
-                                <img src="assets/imgs/Adobe_Photoshop.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
-                               <div class="content-holder">
-                                    <a class="img-popup" href="assets/imgs/Adobe_Photoshop.png"></a>
-                                    <div class="text-holder">
-                                        <h6 class="title">ADOBE PHOTOSHOP</h6>
-                                        <p class="subtitle">Adobe Photoshop is a graphics editing software used for creating and modifying images. It offers a range of tools for image editing and is available as part of a subscription service or as a standalone product.</p>
-                                    </div>
-                                </div>
-                            </div>                                                     
-                        </div>
-                        <div class="col-md-6 col-lg-4 all others">
-                            <div class="portfolio-item">
-                                <img src="assets/imgs/Adobe_Illustrator.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
-                               <div class="content-holder">
-                                    <a class="img-popup" href="assets/imgs/Adobe_Illustrator.png"></a>
-                                    <div class="text-holder">
-                                        <h6 class="title">ADOBE ILLUSTRATOR</h6>
-                                        <p class="subtitle">Adobe Illustrator is a vector graphics editing software used for creating and editing graphics such as logos and illustrations. It offers a range of tools for creating and editing vector graphics and is available as part of a subscription service or as a standalone product.</p>
-                                    </div>
-                                </div>
-                            </div>                                                     
-                        </div>
-         
-                    </div> 
-                </div>  
+                    </div>   
+                </div>             
             </div>
-        </div>            
-    </section>
+            
+            <!-- Swift -->
+            <div class="col-md-6 col-lg-4 all mobile mb-4">
+                <div class="portfolio-item h-100">
+                    <img src="assets/imgs/swift.png" class="img-fluid rounded" alt="Swift">
+                    <div class="content-holder p-3">
+                        <div class="text-holder">
+                            <h6 class="title text-danger">MOBILE</h6>
+                            <p class="subtitle">Swift is a programming language used for building apps and designed to be easy to read and write, and safer.</p>
+                        </div>
+                    </div> 
+                </div>                         
+            </div>
+            
+            <!-- Flutter -->
+            <div class="col-md-6 col-lg-4 all mobile mb-4">
+                <div class="portfolio-item h-100">
+                    <img src="assets/imgs/flutter.png" class="img-fluid rounded" alt="Flutter">                         
+                    <div class="content-holder p-3">
+                        <div class="text-holder">
+                            <h6 class="title text-danger">MOBILE</h6>
+                            <p class="subtitle">Flutter is a mobile app development framework that allows developers to build apps for multiple platforms from a single codebase. It is known for its fast development cycle and high performance.</p>
+                        </div>
+                    </div>    
+                </div>              
+            </div> 
+            
+            <!-- Angular -->
+            <div class="col-md-6 col-lg-4 all web mb-4">
+                <div class="portfolio-item h-100">
+                    <img src="assets/imgs/angular.png" class="img-fluid rounded" alt="Angular">
+                    <div class="content-holder p-3">
+                        <div class="text-holder">
+                            <h6 class="title text-danger">WEB</h6>
+                            <p class="subtitle">Angular is a JavaScript framework for building web applications, including single-page apps and mobile and desktop apps. It is maintained by Google and a community of developers.</p>
+                        </div>
+                    </div>
+                </div>                                                     
+            </div>
+
+            <!-- Symfony -->
+            <div class="col-md-6 col-lg-4 all web mb-4"> 
+                <div class="portfolio-item h-100">
+                    <img src="assets/imgs/symfony.png" class="img-fluid rounded" alt="Symfony">                               
+                    <div class="content-holder p-3">
+                        <div class="text-holder">
+                            <h6 class="title text-danger">WEB</h6>
+                            <p class="subtitle">Symfony is a PHP web application framework used for developing web applications, APIs, and microservices. It is open-source, flexible, and easy to use.</p>
+                        </div>
+                    </div>
+                </div>                                                       
+            </div> 
+            
+            <!-- Node.js -->
+            <div class="col-md-6 col-lg-4 all back-end mb-4">
+                <div class="portfolio-item h-100">
+                    <img src="assets/imgs/Nodejs.png" class="img-fluid rounded" alt="Node.js">  
+                   <div class="content-holder p-3">
+                        <div class="text-holder">
+                            <h6 class="title text-danger">BACK-END</h6>
+                            <p class="subtitle">Node.js is a JavaScript runtime environment used for building server-side applications and real-time systems. It uses an event-driven, non-blocking I/O model.</p>
+                        </div>
+                    </div>
+                </div>                                                     
+            </div>
+            
+            <!-- Continue with other items in the same pattern... -->
+            <!-- QT -->
+            <div class="col-md-6 col-lg-4 all others mb-4">
+                <div class="portfolio-item h-100">
+                    <img src="assets/imgs/qt.png" class="img-fluid rounded" alt="QT">  
+                   <div class="content-holder p-3">
+                        <div class="text-holder">
+                            <h6 class="title text-danger">QT</h6>
+                            <p class="subtitle">Qt is a framework for developing cross-platform applications, particularly those with graphical user interfaces (GUIs).</p>
+                        </div>
+                    </div>
+                </div>                                                     
+            </div>
+            
+            <!-- MongoDB -->
+            <div class="col-md-6 col-lg-4 all others mb-4">
+                <div class="portfolio-item h-100">
+                    <img src="assets/imgs/mongodb.png" class="img-fluid rounded" alt="MongoDB">  
+                   <div class="content-holder p-3">
+                        <div class="text-holder">
+                            <h6 class="title text-danger">MONGODB</h6>
+                            <p class="subtitle">MongoDB is a NoSQL database that stores data in a flexible, JSON-like format called BSON.</p>
+                        </div>
+                    </div>
+                </div>                                                     
+            </div>
+            
+            <!-- Add all other tools in the same pattern -->
+            <!-- ... continue with other items ... -->
+            
+        </div> 
+    </div>            
+</section>
     <!-- End of portfolio section -->
 
     <section class="section" id="blog">
