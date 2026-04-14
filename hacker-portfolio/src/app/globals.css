@@ -35,7 +35,14 @@
   --r-accent:     #6366f1;
   --r-accent2:    #06b6d4;
   --r-text:       #e2e8f0;
-  --r-muted:      #64748b;
+  --r-muted:      #94a3b8;
+  --r-px:         32px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --r-px: 20px;
+  }
 }
 
 /* ── RESET ── */
@@ -482,11 +489,51 @@ a:hover { color: var(--white); text-shadow: 0 0 8px var(--cyan); }
   padding: 24px;
   backdrop-filter: blur(12px);
   transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.r-card::before, .r-card::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  border: 1px solid var(--r-accent);
+  opacity: 0.3;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.r-card::before {
+  top: 0; left: 0;
+  border-right: none;
+  border-bottom: none;
+  border-top: none;
+  width: 2px;
+  height: 20px;
+  background: var(--r-accent);
+  box-shadow: 0 0 10px var(--r-accent);
+}
+
+.r-card::after {
+  bottom: 0; right: 0;
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+  width: 2px;
+  height: 20px;
+  background: var(--r-accent2);
+  box-shadow: 0 0 10px var(--r-accent2);
+}
+
+.r-card:hover::before, .r-card:hover::after {
+  opacity: 0.8;
 }
 
 .r-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
+  transform: translateY(-4px);
+  background: rgba(18, 18, 26, 0.6);
+  box-shadow: 0 12px 40px rgba(99, 102, 241, 0.2);
 }
 
 .r-tag {

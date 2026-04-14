@@ -189,7 +189,7 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
         id="r-about"
         style={{
           paddingTop: 120, paddingBottom: 80,
-          maxWidth: 1000, margin: '0 auto', padding: '120px 32px 80px',
+          maxWidth: 1000, margin: '0 auto', padding: '120px var(--r-px) 80px',
         }}
       >
         <motion.div
@@ -343,9 +343,9 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
       </section>
 
       {/* Experience */}
-      <section id="r-experience" style={{ maxWidth: 1000, margin: '0 auto', padding: '0 32px 80px' }}>
+      <section id="r-experience" style={{ maxWidth: 1000, margin: '0 auto', padding: '0 var(--r-px) 80px' }}>
         <h2 style={{ color: 'var(--r-text)', fontSize: 28, fontWeight: 700, marginBottom: 32 }}>
-          {lang === 'ar' ? 'الخبرة والتعليم' : lang === 'fr' ? "Expérience & Formation" : "Experience & Education"}
+          {lang === 'ar' ? 'الخبرة والتعليم' : lang === 'fr' ? 'Expérience & Éducation' : 'Experience & Education'}
         </h2>
         <div style={{ display: 'grid', gap: 16 }}>
           {[
@@ -429,7 +429,7 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
       </section>
 
       {/* Projects */}
-      <section id="r-projects" style={{ maxWidth: 1000, margin: '0 auto', padding: '0 32px 80px' }}>
+      <section id="r-projects" style={{ maxWidth: 1000, margin: '0 auto', padding: '0 var(--r-px) 80px' }}>
         <h2 style={{ color: 'var(--r-text)', fontSize: 28, fontWeight: 700, marginBottom: 32 }}>
           {lang === 'ar' ? 'المشاريع' : lang === 'fr' ? 'Projets' : 'Projects'}
         </h2>
@@ -536,9 +536,9 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
       </section>
 
       {/* Skills */}
-      <section id="r-skills" style={{ maxWidth: 1000, margin: '0 auto', padding: '0 32px 80px' }}>
-        <h2 style={{ color: 'var(--r-text)', fontSize: 28, fontWeight: 700, marginBottom: 32 }}>
-          {lang === 'ar' ? 'المهارات' : lang === 'fr' ? 'Compétences' : 'Skills'}
+      <section id="r-skills" style={{ maxWidth: 1000, margin: '0 auto', padding: '0 var(--r-px) 80px' }}>
+        <h2 style={{ color: 'var(--r-text)', fontSize: 28, fontWeight: 700, marginBottom: 40 }}>
+          {lang === 'ar' ? 'المهارات والتقنيات' : lang === 'fr' ? 'Compétences & Tech' : 'Skills & Technologies'}
         </h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
           {SKILLS.map((s, i) => (

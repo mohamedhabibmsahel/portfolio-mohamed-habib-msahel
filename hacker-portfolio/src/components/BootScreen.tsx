@@ -104,22 +104,26 @@ export default function BootScreen({ lang, onComplete }: BootScreenProps) {
       {/* Content */}
       <div style={{ width: '100%', maxWidth: 760, position: 'relative', zIndex: 3 }}>
 
-        {/* IP detection box */}
         <AnimatePresence>
           {showIp && (
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               style={{
-                position: 'absolute', top: -80, right: 0,
-                background: 'rgba(0,255,0,0.04)', border: '1px solid rgba(0,255,0,0.2)',
-                borderRadius: 4, padding: '8px 14px', fontSize: 11,
-                color: 'var(--dim)', lineHeight: 1.7,
+                position: 'absolute', top: -100, right: 0,
+                background: 'rgba(0,255,0,0.06)', border: '1px solid rgba(0,255,0,0.3)',
+                boxShadow: '0 0 20px rgba(0,255,0,0.1)',
+                borderRadius: 4, padding: '10px 16px', fontSize: 11,
+                color: 'var(--green)', lineHeight: 1.7,
+                backdropFilter: 'blur(4px)',
+                fontFamily: 'var(--font-mono)',
               }}
             >
-              <div>IP: <span style={{ color: 'var(--cyan)' }}>{fakeInfo.ip}</span></div>
-              <div>OS: <span style={{ color: 'var(--green)' }}>{fakeInfo.os}</span></div>
-              <div>UA: <span style={{ color: 'var(--green)' }}>{fakeInfo.browser}</span></div>
+              <div style={{ color: 'var(--dim)', fontSize: 9, marginBottom: 4 }}>[ SYSTEM DIAGNOSTICS ]</div>
+              <div>ID: <span style={{ color: 'var(--cyan)' }}>HACKER-X</span></div>
+              <div>LOC: <span style={{ color: 'var(--cyan)' }}>{fakeInfo.ip}</span></div>
+              <div>CPU: <span style={{ color: 'var(--yellow)' }}>42°C</span> MEM: <span style={{ color: 'var(--yellow)' }}>85%</span></div>
+              <div style={{ fontSize: 9, opacity: 0.6, marginTop: 4 }}>ENCRYPTED: AES-XTS-256</div>
             </motion.div>
           )}
         </AnimatePresence>

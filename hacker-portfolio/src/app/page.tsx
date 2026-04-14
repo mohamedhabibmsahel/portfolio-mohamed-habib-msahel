@@ -349,22 +349,25 @@ export default function Home() {
 
       {/* ── MOBILE: Show panels vertically ── */}
       <style>{`
-        @media (max-width: 768px) {
-          .hacker-layout {
-            grid-template-columns: 1fr !important;
+          @media (max-width: 768px) {
+            .hacker-layout {
+              grid-template-columns: 1fr !important;
+              max-width: 100% !important;
+            }
+            #terminal-section {
+              position: static !important;
+              height: 75vh !important;
+              max-height: 75vh;
+              padding: 12px !important;
+            }
+            #projects-section {
+              position: static !important;
+              max-height: none !important;
+              border-left: none !important;
+              border-top: 1px solid var(--border);
+              padding: 12px !important;
+            }
           }
-          #terminal-section {
-            position: static !important;
-            height: 70vh !important;
-            max-height: 70vh;
-          }
-          #projects-section {
-            position: static !important;
-            max-height: none !important;
-            border-left: none !important;
-            border-top: 1px solid var(--border);
-          }
-        }
       `}</style>
     </>
   );

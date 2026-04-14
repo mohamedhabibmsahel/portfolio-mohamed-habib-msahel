@@ -9,6 +9,7 @@ import * as THREE from 'three';
 // Synchronizes the 3D camera with the actual DOM scroll
 function ScrollCamera() {
   const scrollRef = useRef(0);
+  const mouse = useRef({ x: 0, y: 0 });
   const targetZ = useRef(35); // Start position
 
   useEffect(() => {
@@ -18,27 +19,36 @@ function ScrollCamera() {
         scrollRef.current = window.scrollY / scrollHeight;
       }
     };
+    const handleMouseMove = (e: MouseEvent) => {
+      mouse.current.x = (e.clientX / window.innerWidth) - 0.5;
+      mouse.current.y = (e.clientY / window.innerHeight) - 0.5;
+    };
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial check
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('mousemove', handleMouseMove);
+    handleScroll();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
   useFrame((state, delta) => {
-    // Scroll goes from 0 to 1.
-    // Map scroll to Z axis: Start at z=35, end at z=-55
     const mappedZ = 35 - scrollRef.current * 90;
     targetZ.current = THREE.MathUtils.lerp(targetZ.current, mappedZ, delta * 4);
-
     state.camera.position.z = targetZ.current;
     
-    // Add a slight parallax/sway based on scroll progress
-    const swayX = Math.sin(scrollRef.current * Math.PI * 4) * 2;
-    const swayY = Math.cos(scrollRef.current * Math.PI * 4) * 1 + 2;
+    // Combine Scroll sway with Mouse parallax
+    const scrollSwayX = Math.sin(scrollRef.current * Math.PI * 4) * 2;
+    const scrollSwayY = Math.cos(scrollRef.current * Math.PI * 4) * 1 + 2;
     
-    state.camera.position.x = THREE.MathUtils.lerp(state.camera.position.x, swayX, delta * 2);
-    state.camera.position.y = THREE.MathUtils.lerp(state.camera.position.y, swayY, delta * 2);
+    // Add mouse influence (parallax)
+    const targetX = scrollSwayX + mouse.current.x * 5;
+    const targetY = scrollSwayY - mouse.current.y * 5;
+    
+    state.camera.position.x = THREE.MathUtils.lerp(state.camera.position.x, targetX, delta * 2);
+    state.camera.position.y = THREE.MathUtils.lerp(state.camera.position.y, targetY, delta * 2);
 
-    state.camera.lookAt(swayX * 0.5, swayY * 0.5, targetZ.current - 20);
+    state.camera.lookAt(targetX * 0.5, targetY * 0.5, targetZ.current - 20);
   });
 
   return null;
