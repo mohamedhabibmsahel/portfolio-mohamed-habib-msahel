@@ -25,6 +25,7 @@ export default function Home() {
   const [gameWon, setGameWon] = useState(false);
   const [toastMsg, setToastMsg] = useState('');
   const [toastVisible, setToastVisible] = useState(false);
+  const [isGlitching, setIsGlitching] = useState(false);
 
   // Persist lang
   useEffect(() => {
@@ -53,8 +54,12 @@ export default function Home() {
 
   const handleSwitchMode = useCallback(() => {
     if (appState === 'hacker') {
-      showToast('⟳ Switching to recruiter interface...');
-      setTimeout(() => setAppState('recruiter'), 600);
+      setIsGlitching(true);
+      showToast('⟳ SYSTEM GLITCH DETECTED — REBOOTING UI...', 2000);
+      setTimeout(() => {
+        setAppState('recruiter');
+        setIsGlitching(false);
+      }, 1800); // Cinematic 1.8s delay
     } else {
       showToast('⟳ Switching back to hacker mode...');
       setTimeout(() => setAppState('hacker'), 600);
@@ -153,6 +158,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 0.99, filter: 'blur(4px)' }}
             transition={{ duration: 0.5 }}
+            className={isGlitching ? "hacker-glitch" : ""}
             style={{
               position: 'relative',
               zIndex: 10,

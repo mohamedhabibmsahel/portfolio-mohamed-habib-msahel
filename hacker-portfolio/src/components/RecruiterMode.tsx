@@ -5,7 +5,7 @@ import { type Lang, I18N } from '@/data/i18n';
 import { PROJECTS, SKILLS, TECH_TAGS } from '@/data/portfolio';
 import { Sound } from './SoundEngine';
 
-const GalaxyBackground = dynamic(() => import('@/components/GalaxyBackground'), { ssr: false });
+const SpaceScene = dynamic(() => import('@/components/SpaceScene'), { ssr: false });
 
 interface RecruiterModeProps {
   lang: Lang;
@@ -41,7 +41,7 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
       transition={{ duration: 0.5 }}
       style={{ paddingBottom: 60, position: 'relative' }}
     >
-      <GalaxyBackground />
+      <SpaceScene />
       {/* Navbar */}
       <nav className="r-nav">
         <div className="r-logo">MHM.dev</div>

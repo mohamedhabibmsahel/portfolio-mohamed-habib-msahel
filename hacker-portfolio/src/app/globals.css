@@ -656,6 +656,22 @@ a:hover { color: var(--white); text-shadow: 0 0 8px var(--cyan); }
   }
 }
 
+/* ── CINEMATIC GLITCH TRANSITION ── */
+.hacker-glitch {
+  animation: cinematicGlitch 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes cinematicGlitch {
+  0%   { filter: none; transform: translate(0); }
+  10%  { filter: hue-rotate(-50deg) contrast(200%); transform: translate(-2px, 1px) skewX(2deg); }
+  20%  { filter: hue-rotate(50deg) contrast(200%) invert(20%); transform: translate(2px, -2px) skewX(-2deg); opacity: 0.9; }
+  30%  { filter: none; transform: translate(0); opacity: 1; }
+  35%  { filter: hue-rotate(-90deg) contrast(300%) blur(1px); transform: translate(-5px, 5px) skewX(5deg); }
+  45%  { filter: none; transform: translate(0); }
+  60%  { transform: scale(1.02); filter: blur(2px) sepia(50%) hue-rotate(180deg); opacity: 0.7; }
+  100% { transform: scale(1.05) translateY(20px); filter: blur(10px) contrast(500%) sepia(100%) hue-rotate(180deg); opacity: 0; }
+}
+
 @media (max-width: 400px) {
   .status-bar .status-network { display: none; }
 }
