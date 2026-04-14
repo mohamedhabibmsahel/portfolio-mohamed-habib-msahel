@@ -198,7 +198,7 @@ function Planet3() {
 
 export default function SpaceScene() {
   return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 0, background: '#05050A', pointerEvents: 'none' }}>
+    <div style={{ position: 'fixed', inset: 0, zIndex: -1, background: '#05050A', pointerEvents: 'none' }}>
       <Canvas 
         gl={{ antialias: false, powerPreference: 'high-performance' }}
         camera={{ position: [0, 4, 35], fov: 60 }}
