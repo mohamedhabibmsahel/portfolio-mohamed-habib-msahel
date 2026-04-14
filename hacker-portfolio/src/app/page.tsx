@@ -7,11 +7,11 @@ import SoundEngineInit from '@/components/SoundEngine';
 import StatusBar from '@/components/StatusBar';
 
 // Dynamic imports for heavy components
-const MatrixRain    = dynamic(() => import('@/components/MatrixRain'),    { ssr: false });
-const BootScreen    = dynamic(() => import('@/components/BootScreen'),    { ssr: false });
+const MatrixRain = dynamic(() => import('@/components/MatrixRain'), { ssr: false });
+const BootScreen = dynamic(() => import('@/components/BootScreen'), { ssr: false });
 const TerminalWindow = dynamic(() => import('@/components/TerminalWindow'), { ssr: false });
 const ProjectsPanel = dynamic(() => import('@/components/ProjectsPanel'), { ssr: false });
-const MiniGame      = dynamic(() => import('@/components/MiniGame'),      { ssr: false });
+const MiniGame = dynamic(() => import('@/components/MiniGame'), { ssr: false });
 const RecruiterMode = dynamic(() => import('@/components/RecruiterMode'), { ssr: false });
 
 type AppState = 'boot' | 'hacker' | 'recruiter';
@@ -74,7 +74,7 @@ export default function Home() {
 
   // Konami code easter egg
   useEffect(() => {
-    const seq = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+    const seq = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
     let idx = 0;
     const handler = (e: KeyboardEvent) => {
       idx = e.key === seq[idx] ? idx + 1 : 0;
@@ -175,8 +175,14 @@ export default function Home() {
               flexWrap: 'wrap',
               gap: 8,
             }}>
-              {/* Logo / title */}
+              {/* Logo / title & Avatar */}
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <div style={{
+                  width: 36, height: 36, borderRadius: '50%', overflow: 'hidden',
+                  border: '2px solid var(--green)', boxShadow: '0 0 10px rgba(0,255,0,0.3)',
+                }}>
+                  <img src="/portfolio-mohamed-habib-msahel/assets/avatar_hacker.png" alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
                 <span style={{
                   color: 'var(--green)', fontSize: 15, fontWeight: 800,
                   letterSpacing: 2,
@@ -248,7 +254,7 @@ export default function Home() {
             </div>
 
             {/* ── MAIN LAYOUT: Terminal left, Projects right on wide screens ── */}
-            <div style={{
+            <div className="hacker-layout" style={{
               display: 'grid',
               gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)',
               gap: 0,
@@ -491,8 +497,8 @@ function ContactForm({
       {/* Social links */}
       <div style={{ display: 'flex', gap: 16, marginTop: 8, paddingTop: 12, borderTop: '1px solid var(--border)' }}>
         {[
-          { label: 'GitHub', url: 'https://github.com/habibmsahel' },
-          { label: 'LinkedIn', url: 'https://linkedin.com/in/habibmsahel' },
+          { label: 'GitHub', url: 'https://github.com/mohamedhabibmsahel' },
+          { label: 'LinkedIn', url: 'https://www.linkedin.com/in/mohamed-habib-m-sahel-9bb5a0217' },
           { label: 'Email', url: 'mailto:habib.msahel@email.com' },
         ].map(l => (
           <a

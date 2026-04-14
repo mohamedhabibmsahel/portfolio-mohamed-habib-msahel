@@ -163,7 +163,7 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
                   Download CV ⬇
                 </a>
                 <a
-                  href="https://github.com/habibmsahel"
+                  href="https://github.com/mohamedhabibmsahel"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="r-btn"
@@ -172,7 +172,7 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
                   View GitHub →
                 </a>
                 <a
-                  href="https://linkedin.com/in/habibmsahel"
+                  href="https://www.linkedin.com/in/mohamed-habib-m-sahel-9bb5a0217"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -526,7 +526,7 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
               ✉ {lang === 'ar' ? 'إرسال بريد' : lang === 'fr' ? 'Envoyer Email' : 'Send Email'}
             </a>
             <a
-              href="https://linkedin.com/in/habibmsahel"
+              href="https://www.linkedin.com/in/mohamed-habib-m-sahel-9bb5a0217"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -540,7 +540,7 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
               LinkedIn →
             </a>
             <a
-              href="https://github.com/habibmsahel"
+              href="https://github.com/mohamedhabibmsahel"
               target="_blank"
               rel="noopener noreferrer"
               style={{

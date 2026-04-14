@@ -641,6 +641,18 @@ a:hover { color: var(--white); text-shadow: 0 0 8px var(--cyan); }
   .status-bar    { font-size: 9px; padding: 0 8px; }
   .switch-btn    { font-size: 10px; padding: 6px 14px; }
   .terminal-body { padding: 10px; font-size: 12px; }
+
+  .hacker-layout {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Reset sticky heights to allow natural document scroll on mobile */
+  .hacker-layout > div {
+    height: auto !important;
+    max-height: none !important;
+    position: static !important;
+    overflow-y: visible !important;
+  }
 }
 
 @media (max-width: 400px) {

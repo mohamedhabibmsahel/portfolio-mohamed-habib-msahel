@@ -130,7 +130,7 @@ export default function TerminalWindow({
 <p>│ <span class="hl-green">Location:</span> ${d.about_loc}</p>
 <p>│ <span class="hl-green">Status  :</span> <span class="hl-yellow">${d.about_status}</span></p>
 <p>│ <span class="hl-green">Stack   :</span> <span class="hl-cyan">React · Node.js · Flutter · PostgreSQL</span></p>
-<p>│ <span class="hl-green">GitHub  :</span> <a href="https://github.com/habibmsahel" target="_blank" style="color:var(--cyan)">github.com/habibmsahel</a></p>
+<p>│ <span class="hl-green">GitHub  :</span> <a href="https://github.com/mohamedhabibmsahel" target="_blank" style="color:var(--cyan)">github.com/mohamedhabibmsahel</a></p>
 <p class="hl-green">└──────────────────────────────────────────────┘</p>
 <p>&nbsp;</p>
 ${d.about_bio.map(l => `<p style="color:var(--white)">${l || '&nbsp;'}</p>`).join('')}
@@ -206,8 +206,8 @@ ${d.about_bio.map(l => `<p style="color:var(--white)">${l || '&nbsp;'}</p>`).joi
 <p class="hl-green">${d.cmd_contact_init}</p>
 <p class="hl-dim">Encryption: <span class="hl-green">AES-256</span> | Protocol: <span class="hl-green">HTTPS/3</span></p>
 <p>&nbsp;</p>
-<p><span class="hl-green">${links[0]}</span> <a href="https://github.com/habibmsahel" target="_blank" style="color:var(--cyan)">github.com/habibmsahel</a></p>
-<p><span class="hl-green">${links[1]}</span> <a href="https://linkedin.com/in/habibmsahel" target="_blank" style="color:var(--cyan)">linkedin.com/in/habibmsahel</a></p>
+<p><span class="hl-green">${links[0]}</span> <a href="https://github.com/mohamedhabibmsahel" target="_blank" style="color:var(--cyan)">github.com/mohamedhabibmsahel</a></p>
+<p><span class="hl-green">${links[1]}</span> <a href="https://www.linkedin.com/in/mohamed-habib-m-sahel-9bb5a0217" target="_blank" style="color:var(--cyan)">linkedin.com/in/mohamed-habib-m-sahel-9bb5a0217</a></p>
 <p><span class="hl-green">${links[2]}</span> <a href="mailto:habib.msahel@email.com" style="color:var(--cyan)">habib.msahel@email.com</a></p>
 <p>&nbsp;</p>
 <p class="hl-dim">${d.cmd_contact_scroll}</p>`);
