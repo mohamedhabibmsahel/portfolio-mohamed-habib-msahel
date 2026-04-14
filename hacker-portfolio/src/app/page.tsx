@@ -167,7 +167,7 @@ export default function Home() {
             }}
           >
             {/* ── TOP NAV ── */}
-            <div style={{
+            <div className="hacker-top-banner" style={{
               position: 'sticky',
               top: 0,
               zIndex: 50,
@@ -178,8 +178,6 @@ export default function Home() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              flexWrap: 'wrap',
-              gap: 8,
             }}>
               {/* Logo / title & Avatar */}
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -208,7 +206,7 @@ export default function Home() {
               </div>
 
               {/* Nav links */}
-              <div style={{ display: 'flex', gap: 6, alignItems: 'center', flexWrap: 'wrap' }}>
+              <div className="hacker-nav-container no-scrollbar">
                 {[
                   { href: '#terminal-section', label: '~/terminal' },
                   { href: '#projects-section', label: '~/projects' },

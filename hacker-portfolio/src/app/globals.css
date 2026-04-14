@@ -721,3 +721,39 @@ a:hover { color: var(--white); text-shadow: 0 0 8px var(--cyan); }
 .hl-red    { color: var(--red);    }
 .hl-white  { color: var(--white);  }
 .hl-dim    { color: var(--dim);    }
+
+/* ── UI RESPONSIVE UTILITIES ── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Recruiter Nav Mobile View */
+.r-nav-mobile {
+  display: none;
+}
+@media (max-width: 768px) {
+  .r-nav-desktop { display: none !important; }
+  .r-nav-mobile { display: flex !important; }
+}
+
+/* Hacker Top Nav Container */
+.hacker-nav-container {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 4px; /* Space for scrolling interaction on touch */
+  flex-wrap: nowrap;
+}
+@media (max-width: 600px) {
+  .hacker-top-banner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+}

@@ -1,6 +1,6 @@
-'use client';
+import { useState } from 'react';
 import dynamic from 'next/dynamic';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { type Lang, I18N } from '@/data/i18n';
 import { PROJECTS, SKILLS, TECH_TAGS } from '@/data/portfolio';
 import { Sound } from './SoundEngine';
@@ -26,6 +26,7 @@ const stagger = {
 };
 
 export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classifiedUnlocked }: RecruiterModeProps) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const d = I18N[lang];
   const visibleProjects = PROJECTS.filter(p => !p.classified || classifiedUnlocked);
 
@@ -45,7 +46,9 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
       {/* Navbar */}
       <nav className="r-nav">
         <div className="r-logo">MHM.dev</div>
-        <div style={{ display: 'flex', gap: 24, alignItems: 'center' }}>
+        
+        {/* Desktop Nav */}
+        <div className="r-nav-desktop" style={{ display: 'flex', gap: 24, alignItems: 'center' }}>
           {[
             { href: '#r-about', label: lang === 'ar' ? 'عنّي' : lang === 'fr' ? 'À Propos' : 'About' },
             { href: '#r-experience', label: lang === 'ar' ? 'الخبرة' : lang === 'fr' ? 'Expérience' : 'Experience' },
@@ -98,7 +101,88 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
             &lt;/&gt; hacker mode
           </button>
         </div>
+
+        {/* Mobile Hamburger */}
+        <button 
+          className="r-nav-mobile"
+          onClick={() => { setIsMobileMenuOpen(!isMobileMenuOpen); Sound.click(); }}
+          style={{
+            background: 'transparent', border: 'none', color: 'var(--r-text)',
+            cursor: 'pointer', padding: 8,
+          }}
+        >
+          {isMobileMenuOpen ? (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          ) : (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+          )}
+        </button>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            style={{
+              position: 'fixed', inset: 0, zIndex: 99,
+              background: 'rgba(10, 10, 15, 0.85)',
+              backdropFilter: 'blur(16px)',
+              padding: '80px 32px 32px',
+              display: 'flex', flexDirection: 'column', gap: 32,
+            }}
+          >
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+              {[
+                { href: '#r-about', label: lang === 'ar' ? 'عنّي' : lang === 'fr' ? 'À Propos' : 'About' },
+                { href: '#r-experience', label: lang === 'ar' ? 'الخبرة' : lang === 'fr' ? 'Expérience' : 'Experience' },
+                { href: '#r-projects', label: lang === 'ar' ? 'مشاريع' : lang === 'fr' ? 'Projets' : 'Projects' },
+                { href: '#r-skills', label: lang === 'ar' ? 'مهارات' : lang === 'fr' ? 'Compétences' : 'Skills' },
+                { href: '#r-contact', label: lang === 'ar' ? 'تواصل' : lang === 'fr' ? 'Contact' : 'Contact' },
+              ].map(l => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{ color: 'var(--r-text)', fontSize: 24, fontWeight: 700, textDecoration: 'none' }}
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
+
+            <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: 20 }}>
+              <div style={{ display: 'flex', gap: 12 }}>
+                {(['en', 'fr', 'ar'] as Lang[]).map(l => (
+                  <button
+                    key={l}
+                    onClick={() => { onLangChange(l); Sound.click(); }}
+                    style={{
+                      flex: 1, background: lang === l ? 'var(--r-accent)' : 'rgba(255,255,255,0.05)',
+                      border: `1px solid ${lang === l ? 'var(--r-accent)' : 'rgba(255,255,255,0.1)'}`,
+                      color: 'white', padding: '10px', borderRadius: 8, fontSize: 14,
+                    }}
+                  >
+                    {l.toUpperCase()}
+                  </button>
+                ))}
+              </div>
+              <button
+                onClick={() => { onSwitchBack(); setIsMobileMenuOpen(false); Sound.access(); }}
+                style={{
+                  background: 'var(--r-accent)', border: 'none', color: 'white',
+                  padding: '16px', borderRadius: 12, fontSize: 16, fontWeight: 600,
+                }}
+              >
+                &lt;/&gt; Switch to Hacker Mode
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Hero */}
       <section
