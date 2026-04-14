@@ -1,8 +1,11 @@
 'use client';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { type Lang, I18N } from '@/data/i18n';
 import { PROJECTS, SKILLS, TECH_TAGS } from '@/data/portfolio';
 import { Sound } from './SoundEngine';
+
+const GalaxyBackground = dynamic(() => import('@/components/GalaxyBackground'), { ssr: false });
 
 interface RecruiterModeProps {
   lang: Lang;
@@ -36,8 +39,9 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
       animate={{ opacity: 1, filter: 'blur(0px)' }}
       exit={{ opacity: 0, filter: 'blur(8px)' }}
       transition={{ duration: 0.5 }}
-      style={{ paddingBottom: 60 }}
+      style={{ paddingBottom: 60, position: 'relative' }}
     >
+      <GalaxyBackground />
       {/* Navbar */}
       <nav className="r-nav">
         <div className="r-logo">MHM.dev</div>
