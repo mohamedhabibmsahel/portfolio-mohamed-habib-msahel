@@ -262,30 +262,39 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
         <div style={{ display: 'grid', gap: 16 }}>
           {[
             {
-              period: '2025 – Present',
-              title: lang === 'ar' ? 'مطور Full-Stack' : lang === 'fr' ? 'Développeur Full-Stack' : 'Full-Stack Developer',
-              org: 'Easy Dispatching Solutions',
-              desc: lang === 'ar' ? 'بناء منصة لوجستية باستخدام React، Node.js، و Flutter مع إدارة المستودعات في الوقت الفعلي.'
-                : lang === 'fr' ? 'Développement d\'une plateforme logistique avec React, Node.js et Flutter avec gestion d\'entrepôt en temps réel.'
-                : 'Built logistics platform with React, Node.js, and Flutter featuring real-time warehouse management.',
+              period: lang === 'fr' ? 'Août 2025 – Présent' : lang === 'ar' ? 'أغسطس 2025 – الحاضر' : 'Aug 2025 – Present',
+              title: lang === 'fr' ? 'Développeur Full-Stack Mobile' : lang === 'ar' ? 'مطور Full-Stack' : 'Full Stack Mobile Developer',
+              org: 'Lebosphore',
+              desc: lang === 'fr' ? 'Développement d\'applications mobiles hybrides avec Flutter et conception du backend avec Node.js & MySQL.'
+                : lang === 'ar' ? 'تطوير تطبيقات محمولة باستخدام Flutter وبناء الخلفية باستخدام Node.js و MySQL.'
+                : 'Developed hybrid mobile applications with Flutter and designed backend architecture using Node.js & MySQL.',
               type: 'work',
             },
             {
-              period: '2024',
-              title: lang === 'ar' ? 'مطور تطبيقات Zebra' : lang === 'fr' ? 'Développeur Applications Zebra' : 'Mobile Developer — Zebra Devices',
-              org: 'Industrial Mobile Solutions',
-              desc: lang === 'ar' ? 'تطوير تطبيق Flutter لمسح الباركود الصناعي مع مزامنة دون اتصال.'
-                : lang === 'fr' ? 'Développement d\'une application Flutter pour scanner industriel avec synchronisation hors ligne.'
-                : 'Developed Flutter barcode scanning app for industrial Zebra devices with offline sync.',
+              period: lang === 'fr' ? 'Fév 2025 – Jui 2025' : lang === 'ar' ? 'فبراير 2025 – يوليو 2025' : 'Feb 2025 – Jul 2025',
+              title: lang === 'fr' ? 'Développeur Flutter & Node.js' : lang === 'ar' ? 'مطور Flutter و Node.js' : 'Flutter & Node.js Developer',
+              org: 'The Landlord',
+              desc: lang === 'fr' ? 'Développement d\'applications mobile et web de gestion immobilière avec bases de données MySQL.'
+                : lang === 'ar' ? 'تطوير تطبيقات الويب والموبايل لإدارة العقارات وبناء الخلفية الخاصة بها.'
+                : 'Built a real-estate management mobile and web application with backend database integration.',
               type: 'work',
             },
             {
-              period: '2019 – 2024',
-              title: d.about_edu,
-              org: lang === 'ar' ? 'جامعة التكنولوجيا' : lang === 'fr' ? "Université de Technologie" : "University of Technology",
-              desc: lang === 'ar' ? 'شهادة هندسة في علوم الحاسوب — التخصص في تطوير البرمجيات والتطبيقات المحمولة.'
-                : lang === 'fr' ? 'Diplôme d\'ingénieur en informatique — Spécialisation en développement logiciel et applications mobiles.'
-                : 'Engineering degree in Computer Science — Specialization in software development and mobile applications.',
+              period: lang === 'fr' ? 'Jan 2024 – Sep 2024' : lang === 'ar' ? 'يناير 2024 – سبتمبر 2024' : 'Jan 2024 – Sep 2024',
+              title: lang === 'fr' ? 'Développeur Mobile Freelance' : lang === 'ar' ? 'مطور تطبيقات محمولة مستقل' : 'Freelance Mobile Developer',
+              org: 'ArcanaSoft',
+              desc: lang === 'fr' ? 'Conception et réalisation d\'une application Flutter destinée aux services de nettoyage et de stérilisation.'
+                : lang === 'ar' ? 'تصميم وتنفيذ تطبيق لخدمات التنظيف والتعقيم باستخدام Flutter.'
+                : 'Designed and implemented an application for cleaning and sterilization services using Flutter.',
+              type: 'work',
+            },
+            {
+              period: lang === 'fr' ? 'Sept 2018 – Présent' : lang === 'ar' ? 'سبتمبر 2018 – الحاضر' : 'Sept 2018 – Present',
+              title: lang === 'fr' ? 'Diplôme d\'Ingénieur — Informatique' : lang === 'ar' ? 'شهادة مهندس دوله — علوم الحاسب' : 'Engineering Degree — Computer Science',
+              org: 'ESPRIT',
+              desc: lang === 'fr' ? 'Cycle d\'ingénieur en informatique à l\'École Supérieure Privée d\'Ingénierie et de Technologie (Tunis).'
+                : lang === 'ar' ? 'دورة الهندسة في المدرسة العليا الخاصة للهندسة والتكنولوجيا بتونس.'
+                : 'Computer Science Engineering cycle at the Higher Private School of Engineering and Technology (Tunis).',
               type: 'edu',
             },
           ].map((item, i) => (
