@@ -109,75 +109,101 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.6 }}
         >
-          <div style={{ fontSize: 13, color: 'var(--r-accent)', letterSpacing: 2, marginBottom: 12 }}>
-            &gt; Hi, my name is
-          </div>
-          <h1 style={{
-            fontSize: 'clamp(36px, 5vw, 64px)',
-            fontWeight: 800,
-            lineHeight: 1.1,
-            marginBottom: 16,
-            background: 'linear-gradient(135deg, var(--r-text) 0%, rgba(226,232,240,0.6) 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-          }}>
-            {d.about_name}
-          </h1>
-          <h2 style={{
-            fontSize: 'clamp(20px, 3vw, 36px)',
-            fontWeight: 600,
-            background: 'linear-gradient(135deg, var(--r-accent), var(--r-accent2))',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            marginBottom: 24,
-          }}>
-            {d.about_role}
-          </h2>
-          <p style={{
-            color: 'var(--r-muted)', fontSize: 16, lineHeight: 1.7,
-            maxWidth: 600, marginBottom: 32,
-          }}>
-            {d.about_bio.join(' ').replace('  ', ' ')}
-          </p>
-          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-            <a
-              href="https://github.com/habibmsahel"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="r-btn"
-              onClick={() => Sound.click()}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 40, alignItems: 'center' }}>
+            <div style={{ flex: '1 1 500px' }}>
+              <div style={{ fontSize: 13, color: 'var(--r-accent)', letterSpacing: 2, marginBottom: 12 }}>
+                &gt; Hi, my name is
+              </div>
+              <h1 style={{
+                fontSize: 'clamp(36px, 5vw, 64px)',
+                fontWeight: 800,
+                lineHeight: 1.1,
+                marginBottom: 16,
+                background: 'linear-gradient(135deg, var(--r-text) 0%, rgba(226,232,240,0.6) 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}>
+                {d.about_name}
+              </h1>
+              <h2 style={{
+                fontSize: 'clamp(20px, 3vw, 36px)',
+                fontWeight: 600,
+                background: 'linear-gradient(135deg, var(--r-accent), var(--r-accent2))',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                marginBottom: 24,
+              }}>
+                {d.about_role}
+              </h2>
+              <p style={{
+                color: 'var(--r-muted)', fontSize: 16, lineHeight: 1.7,
+                maxWidth: 600, marginBottom: 32,
+              }}>
+                {d.about_bio.join(' ').replace('  ', ' ')}
+              </p>
+              <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+                <a
+                  href="https://github.com/habibmsahel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="r-btn"
+                  onClick={() => Sound.click()}
+                >
+                  View GitHub →
+                </a>
+                <a
+                  href="https://linkedin.com/in/habibmsahel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    padding: '10px 24px', borderRadius: 8,
+                    border: '1px solid var(--r-border)',
+                    color: 'var(--r-text)', fontSize: 13, fontWeight: 600,
+                    transition: 'border-color 0.2s',
+                    background: 'transparent',
+                  }}
+                >
+                  LinkedIn Profile
+                </a>
+                <button
+                  onClick={() => { onSwitchBack(); Sound.access(); }}
+                  style={{
+                    padding: '10px 24px', borderRadius: 8,
+                    border: '1px solid var(--r-border)',
+                    color: 'var(--r-muted)', fontSize: 13, fontWeight: 500,
+                    cursor: 'pointer', background: 'transparent',
+                    fontFamily: 'var(--font-mono)',
+                    transition: 'all 0.2s',
+                  }}
+                >
+                  🖥 Enter Terminal
+                </button>
+              </div>
+            </div>
+            
+            {/* Avatar Image */}
+            <motion.div 
+              style={{ flex: '0 1 300px', display: 'flex', justifyContent: 'center' }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >
-              View GitHub →
-            </a>
-            <a
-              href="https://linkedin.com/in/habibmsahel"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                padding: '10px 24px', borderRadius: 8,
-                border: '1px solid var(--r-border)',
-                color: 'var(--r-text)', fontSize: 13, fontWeight: 600,
-                transition: 'border-color 0.2s',
-                background: 'transparent',
-              }}
-            >
-              LinkedIn Profile
-            </a>
-            <button
-              onClick={() => { onSwitchBack(); Sound.access(); }}
-              style={{
-                padding: '10px 24px', borderRadius: 8,
-                border: '1px solid var(--r-border)',
-                color: 'var(--r-muted)', fontSize: 13, fontWeight: 500,
-                cursor: 'pointer', background: 'transparent',
-                fontFamily: 'var(--font-mono)',
-                transition: 'all 0.2s',
-              }}
-            >
-              🖥 Enter Terminal
-            </button>
+              <div style={{
+                width: 250, height: 250, borderRadius: '50%', padding: 4,
+                background: 'linear-gradient(135deg, var(--r-accent), var(--r-accent2))',
+                boxShadow: '0 0 30px rgba(99,102,241,0.3)'
+              }}>
+                <img 
+                  src="/portfolio-mohamed-habib-msahel/assets/avatar_hacker.png" 
+                  alt="Habib Hacker Avatar" 
+                  style={{ 
+                    width: '100%', height: '100%', objectFit: 'cover', 
+                    borderRadius: '50%', backgroundColor: '#000' 
+                  }} 
+                />
+              </div>
+            </motion.div>
           </div>
         </motion.div>
 
