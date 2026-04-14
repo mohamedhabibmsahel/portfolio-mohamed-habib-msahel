@@ -26,7 +26,7 @@ const ALL_COMMANDS = [
   'help', 'about', 'projects', 'skills', 'contact', 'hack', 'game', 'whoami',
   'ls', 'pwd', 'date', 'uname', 'echo', 'cat', 'sudo', 'exit', 'clear',
   'matrix', 'coffee', 'hire', 'fortune', 'neofetch', 'secret',
-  'switch-mode', 'unlock', 'start-contact', 'lang', 'cv',
+  'switch-mode', 'unlock', 'start-contact', 'lang', 'cv', 'socials',
 ];
 
 let lineId = 0;
