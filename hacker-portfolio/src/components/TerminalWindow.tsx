@@ -26,7 +26,7 @@ const ALL_COMMANDS = [
   'help', 'about', 'projects', 'skills', 'contact', 'hack', 'game', 'whoami',
   'ls', 'pwd', 'date', 'uname', 'echo', 'cat', 'sudo', 'exit', 'clear',
   'matrix', 'coffee', 'hire', 'fortune', 'neofetch', 'secret',
-  'switch-mode', 'unlock', 'start-contact', 'lang',
+  'switch-mode', 'unlock', 'start-contact', 'lang', 'cv',
 ];
 
 let lineId = 0;
@@ -109,6 +109,7 @@ export default function TerminalWindow({
 <p><span class="hl-green" style="min-width:120px;display:inline-block">projects</span><span class="hl-dim">——</span> ls -la ~/projects</p>
 <p><span class="hl-green" style="min-width:120px;display:inline-block">skills</span><span class="hl-dim">——</span> htop --skills</p>
 <p><span class="hl-green" style="min-width:120px;display:inline-block">contact</span><span class="hl-dim">——</span> cat links.txt</p>
+<p><span class="hl-green" style="min-width:120px;display:inline-block">cv</span><span class="hl-dim">——</span> open / download resume</p>
 <p><span class="hl-green" style="min-width:120px;display:inline-block">hack</span><span class="hl-dim">——</span> simulate CVE exploit 👾</p>
 <p><span class="hl-green" style="min-width:120px;display:inline-block">game</span><span class="hl-dim">——</span> ./crack_mainframe.sh 🔐</p>
 <p><span class="hl-green" style="min-width:120px;display:inline-block">switch-mode</span><span class="hl-dim">——</span> toggle hacker ↔ recruiter UI</p>
@@ -497,6 +498,7 @@ ${p.demo && !p.demo.includes('youtube') ? `<p>│ <span class="hl-green">Demo  :
       'switch-mode': () => cmdSwitchMode(),
       'lang': (a) => cmdLang(a),
       'unlock': (a) => cmdUnlock(a),
+      'cv': () => { print(`<p class="hl-cyan">Opening CV in new tab...</p>`); window.open('/portfolio-mohamed-habib-msahel/assets/cv_mohamedhabibmsahel.pdf', '_blank'); },
     };
 
     if (cmdMap[cmd]) {

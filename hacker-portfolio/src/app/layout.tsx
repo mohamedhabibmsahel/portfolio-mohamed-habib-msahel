@@ -15,7 +15,6 @@ export const metadata: Metadata = {
     description: "Enter the system. Discover the developer.",
     type: "website",
   },
-  icons: { icon: "/favicon.ico" },
 };
 
 export default function RootLayout({

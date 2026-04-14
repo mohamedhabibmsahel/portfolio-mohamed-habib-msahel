@@ -145,6 +145,24 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
               </p>
               <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
                 <a
+                  href="/portfolio-mohamed-habib-msahel/assets/cv_mohamedhabibmsahel.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="r-btn"
+                  onClick={() => Sound.click()}
+                  style={{ background: 'var(--r-accent)', color: 'white', border: 'none' }}
+                >
+                  📄 View CV
+                </a>
+                <a
+                  href="/portfolio-mohamed-habib-msahel/assets/cv_mohamedhabibmsahel.pdf"
+                  download
+                  className="r-btn"
+                  onClick={() => Sound.click()}
+                >
+                  Download CV ⬇
+                </a>
+                <a
                   href="https://github.com/habibmsahel"
                   target="_blank"
                   rel="noopener noreferrer"
