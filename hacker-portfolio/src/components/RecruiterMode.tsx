@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { AnimatePresence, motion } from 'framer-motion';
 import { type Lang, I18N } from '@/data/i18n';
-import { PROJECTS, SKILLS, TECH_TAGS } from '@/data/portfolio';
+import { PROJECTS, SKILLS, TECH_TAGS, type Project } from '@/data/portfolio';
 import { Sound } from './SoundEngine';
 
 const SpaceScene = dynamic(() => import('@/components/SpaceScene'), { ssr: false });
@@ -27,7 +27,27 @@ const stagger = {
 
 export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classifiedUnlocked }: RecruiterModeProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const d = I18N[lang];
+
+  // Handle ESC key to close modal
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedProject(null);
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, []);
+
+  // Lock scroll when modal is open
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => { document.body.style.overflow = 'auto'; };
+  }, [selectedProject]);
   const visibleProjects = PROJECTS.filter(p => !p.classified || classifiedUnlocked);
 
   const levelLabel = (key: string) =>
@@ -445,6 +465,8 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
               key={p.id}
               variants={stagger.item}
               className="r-card"
+              onClick={() => { setSelectedProject(p); Sound.click(); }}
+              style={{ cursor: 'pointer' }}
             >
               {/* Badge */}
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}>
@@ -654,10 +676,140 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
         </motion.div>
       </section>
 
-      {/* Footer */}
-      <footer style={{ textAlign: 'center', color: 'var(--r-muted)', fontSize: 12, padding: '20px 0' }}>
-        © 2026 Mohamed Habib Msahel — Built with passion & caffeine ☕
-      </footer>
+      {/* Project Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <div style={{
+            position: 'fixed', inset: 0, zIndex: 1000,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            padding: '20px',
+          }}>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedProject(null)}
+              style={{
+                position: 'fixed', inset: 0,
+                background: 'rgba(5, 5, 10, 0.7)',
+                backdropFilter: 'blur(12px)',
+              }}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              style={{
+                background: 'rgba(20, 20, 30, 0.8)',
+                border: '1px solid var(--r-border)',
+                borderRadius: 20,
+                width: '100%', maxWidth: 800,
+                maxHeight: '90vh',
+                overflowY: 'auto',
+                position: 'relative',
+                zIndex: 10,
+                padding: '40px var(--r-px)',
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+                backdropFilter: 'blur(24px)',
+              }}
+            >
+              <button
+                onClick={() => setSelectedProject(null)}
+                style={{
+                  position: 'absolute', top: 20, right: 20,
+                  background: 'rgba(255,255,255,0.05)', border: 'none', borderRadius: '50%',
+                  width: 40, height: 40, color: 'var(--r-text)', cursor: 'pointer',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: 20, transition: 'all 0.2s',
+                }}
+                onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.1)')}
+                onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.05)')}
+              >
+                &times;
+              </button>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+                {selectedProject.media && (
+                  <div style={{ width: '100%', borderRadius: 12, overflow: 'hidden', background: '#000' }}>
+                    {selectedProject.media.type === 'image' ? (
+                      <img src={selectedProject.media.url} alt={selectedProject.name} style={{ width: '100%', display: 'block' }} />
+                    ) : (
+                      <div className="video-wrapper" style={{ aspectRatio: '16/9' }}>
+                         <iframe 
+                           src={selectedProject.media.url} 
+                           allowFullScreen 
+                           style={{ border: 'none', width: '100%', height: '100%' }} 
+                         />
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12 }}>
+                    <h2 style={{ color: 'var(--r-text)', fontSize: 32, fontWeight: 800, margin: 0 }}>
+                      {selectedProject.name}
+                    </h2>
+                    <span style={{
+                      fontSize: 10, padding: '4px 12px', borderRadius: 20, letterSpacing: 1,
+                      background: 'rgba(99,102,241,0.15)', color: 'var(--r-accent)',
+                      border: '1px solid var(--r-accent)',
+                    }}>
+                      {selectedProject.badge}
+                    </span>
+                  </div>
+
+                  <p style={{ color: 'var(--r-text)', fontSize: 17, lineHeight: 1.7, marginTop: 20 }}>
+                    {selectedProject.desc[lang] || selectedProject.desc.en}
+                  </p>
+
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 24 }}>
+                    {selectedProject.tags.map(tag => (
+                      <span key={tag} className="r-tag" style={{ fontSize: 12, padding: '4px 12px' }}>{tag}</span>
+                    ))}
+                  </div>
+
+                  <div style={{ display: 'flex', gap: 16, marginTop: 32 }}>
+                    {selectedProject.github && selectedProject.github !== '#' && (
+                      <a
+                        href={selectedProject.github}
+                        target="_blank" rel="noopener noreferrer"
+                        style={{
+                          flex: 1, textAlign: 'center', background: 'rgba(255,255,255,0.05)',
+                          border: '1px solid rgba(255,255,255,0.1)', color: 'white',
+                          padding: '12px', borderRadius: 10, textDecoration: 'none', fontWeight: 600,
+                          transition: 'all 0.2s',
+                        }}
+                        onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.1)')}
+                        onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.05)')}
+                      >
+                        Source Code
+                      </a>
+                    )}
+                    {selectedProject.demo && selectedProject.demo !== '#' && (
+                      <a
+                        href={selectedProject.demo}
+                        target="_blank" rel="noopener noreferrer"
+                        style={{
+                          flex: 1, textAlign: 'center', background: 'var(--r-accent)',
+                          color: 'white', padding: '12px', borderRadius: 10,
+                          textDecoration: 'none', fontWeight: 600, transition: 'all 0.2s',
+                          boxShadow: '0 0 20px rgba(99,102,241,0.3)',
+                        }}
+                        onMouseEnter={e => (e.currentTarget.style.filter = 'brightness(1.1)')}
+                        onMouseLeave={e => (e.currentTarget.style.filter = 'brightness(1.0)')}
+                      >
+                        Live Preview
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }

@@ -77,6 +77,17 @@ export default function Home() {
     showToast('🔓 Classified project unlocked!', 4000);
   }, [showToast]);
 
+  // Updated dynamic document title based on state
+  useEffect(() => {
+    if (appState === 'boot') {
+      document.title = "HabibOS [BOOTING...]";
+    } else if (appState === 'recruiter') {
+      document.title = "Mohamed Habib Msahel | Full-Stack Portfolio";
+    } else {
+      document.title = "HabibOS 3.0 [TERMINAL]";
+    }
+  }, [appState]);
+
   // Konami code easter egg
   useEffect(() => {
     const seq = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
