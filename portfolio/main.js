@@ -161,7 +161,7 @@ const I18N = {
     about_edu_sub: '   University of Technology | 2019 – 2024',
     /* Projects */
     projects_cmd: 'cd projects && ls -la',
-    projects_total: 'total 6 projects',
+    projects_total: 'total 12 projects',
     projects_meta1: 'drwxr-xr-x  6 habib  staff   192 Apr 14 2026 .',
     projects_meta2: 'drwxr-xr-x 18 habib  staff   576 Apr 14 2026 ..',
     /* Skills */
@@ -338,7 +338,7 @@ const I18N = {
     about_edu: '🎓 Diplôme d\'Ingénieur — Informatique',
     about_edu_sub: "   Université de Technologie | 2019 – 2024",
     projects_cmd: 'cd projets && ls -la',
-    projects_total: 'total 6 projets',
+    projects_total: 'total 12 projets',
     projects_meta1: 'drwxr-xr-x  6 habib  staff   192 Avr 14 2026 .',
     projects_meta2: 'drwxr-xr-x 18 habib  staff   576 Avr 14 2026 ..',
     skills_cmd: 'htop --compétences', skills_header: 'PID   COMPÉTENCE                         NIVEAU      USAGE',
@@ -491,7 +491,7 @@ const I18N = {
     about_edu: '🎓 شهادة مهندس — علوم الحاسوب',
     about_edu_sub: '   جامعة التكنولوجيا | 2019 – 2024',
     projects_cmd: 'cd projects && ls -la',
-    projects_total: 'المجموع: 6 مشاريع',
+    projects_total: 'إجمالي 12 مشروعاً',
     projects_meta1: 'drwxr-xr-x  6 habib  staff   192 أبريل 14 2026 .',
     projects_meta2: 'drwxr-xr-x 18 habib  staff   576 أبريل 14 2026 ..',
     skills_cmd: 'htop --skills', skills_header: 'PID   المهارة                      المستوى       الاستخدام',
@@ -657,6 +657,84 @@ const PROJECTS_DATA = [
       en: 'Custom API gateway with request routing, rate limiting algorithms (token bucket), circuit breakers, and request logging.',
       fr: 'Passerelle API personnalisée avec routage des requêtes, algorithmes de limitation de débit (seau à jetons), disjoncteurs et journalisation.',
       ar: 'بوابة API مخصصة مع توجيه الطلبات وخوارزميات تحديد المعدل (دلو الرموز) وقواطع الدائرة وتسجيل الطلبات.',
+    },
+  },
+  {
+    dir: '-rwxr-xr-x witch_undo_game/',
+    name: 'Witch Undo The Spell',
+    badge: 'ACADEMIC',
+    tags: ['C', 'SDL 1.2', 'Linux', 'Photoshop'],
+    demo: 'https://www.youtube-nocookie.com/embed/la9lIbC8o2o',
+    media: { type: 'video', url: 'https://www.youtube-nocookie.com/embed/la9lIbC8o2o' },
+    desc: {
+      en: '2D video game developed in C with SDL. A witch bewitches a village, and you play as "Foulen" to save them with a magic wand.',
+      fr: 'Jeu vidéo 2D développé en C avec SDL. Une sorcière envoûte un village, et vous incarnez "Foulen" pour les sauver avec une baguette magique.',
+      ar: 'لعبة فيديو ثنائية الأبعاد تم تطويرها بلغة C باستخدام مكتبة SDL. تقوم ساحرة بسحر قرية، وتلعب أنت دور "فولان" لإنقاذهم بعصا سحرية.',
+    },
+  },
+  {
+    dir: '-rwxr-xr-x library_mgmt/',
+    name: 'Library Management System',
+    badge: 'ACADEMIC',
+    tags: ['C++', 'QT Framework', 'SQL', 'Arduino'],
+    github: '#', demo: null,
+    media: { type: 'image', url: 'assets/imgs/Library-Management.jpeg' },
+    desc: {
+      en: 'Desktop application for managing libraries with integrated fire and gas leak detection sensors via Arduino.',
+      fr: 'Application de bureau pour la gestion de bibliothèques avec des capteurs de détection d\'incendie et de fuite de gaz intégrés via Arduino.',
+      ar: 'تطبيق سطح مكتب لإدارة المكتبات مع مستشعرات متكاملة للكشف عن الحريق وتسرب الغاز عبر Arduino.',
+    },
+  },
+  {
+    dir: '-rwxr-xr-x euro_rent_a_car/',
+    name: 'EuroRentACar',
+    badge: 'ACADEMIC',
+    tags: ['PHP', 'Oracle', 'HTML/CSS', 'GitHub'],
+    demo: 'https://www.youtube-nocookie.com/embed/-_b6Y2YNlw4',
+    media: { type: 'video', url: 'https://www.youtube-nocookie.com/embed/-_b6Y2YNlw4' },
+    desc: {
+      en: 'A car rental website allowing users to book vehicles and request professional drivers.',
+      fr: 'Un site de location de voitures permettant aux utilisateurs de réserver des véhicules et de demander des chauffeurs professionnels.',
+      ar: 'موقع لتأجير السيارات يتيح للمستخدمين حجز المركبات وطلب سائقين محترفين.',
+    },
+  },
+  {
+    dir: '-rwxr-xr-x fanart_app/',
+    name: 'FanArt Platform',
+    badge: 'ACADEMIC',
+    tags: ['Symfony 4', 'JavaFX', 'Codename One', 'SQL'],
+    github: '#', demo: null,
+    media: { type: 'image', url: 'assets/imgs/theratre.jpeg' },
+    desc: {
+      en: 'Multi-platform system (Web, Mobile, Desktop) for theater management and artist scheduling.',
+      fr: 'Système multi-plateforme (Web, Mobile, Bureau) pour la gestion des théâtres et la planification des artistes.',
+      ar: 'نظام متعدد المنصات (ويب، محمول، سطح مكتب) لإدارة المسارح وجدولة الفنانين.',
+    },
+  },
+  {
+    dir: '-rwxr-xr-x khadamni_app/',
+    name: 'Khadamni',
+    badge: 'ACADEMIC',
+    tags: ['NodeJs', 'Express', 'MongoDB', 'Docker', 'Android Studio'],
+    github: '#', demo: null,
+    media: { type: 'image', url: 'assets/imgs/khadamni.jpeg' },
+    desc: {
+      en: 'Native mobile app connecting users with public service providers (plumbers, carpenters, etc.) with online payment integration.',
+      fr: 'Application mobile native connectant les utilisateurs à des prestataires de services publics (plombiers, menuisiers, etc.) avec paiement en ligne.',
+      ar: 'تطبيق جوال أصيل يربط المستخدمين بمزودي الخدمات العامة (سباك، نجار، إلخ) مع دمج الدفع عبر الإنترنت.',
+    },
+  },
+  {
+    dir: '-rwxr-xr-x sportpal_app/',
+    name: 'SportPal',
+    badge: 'ACADEMIC',
+    tags: ['Flutter', 'NodeJs', 'MongoDB', 'Heroku', 'Angular'],
+    github: '#', demo: null,
+    media: { type: 'image', url: 'assets/imgs/sportpal.jpeg' },
+    desc: {
+      en: 'Cross-platform mobile application for sports match-making, tournament organization, and player management.',
+      fr: 'Application mobile multiplateforme pour la mise en relation de partenaires sportifs, l\'organisation de tournois et la gestion des joueurs.',
+      ar: 'تطبيق جوال متعدد المنصات لمطابقة الشركاء الرياضيين، وتنظيم البطولات وإدارة اللاعبين.',
     },
   },
 ];
@@ -836,56 +914,59 @@ function renderAbout() {
   const isAr = currentLang === 'ar';
 
   el.innerHTML = `
-    <div class="cmd-line">
-      <span class="prompt-green">habib@portfolio</span><span class="separator">:</span>
-      <span class="path">~</span><span class="dollar">$</span>
-      <span class="cmd-text">${t('about_cmd1')}</span>
-    </div>
-    <div class="cmd-output output-fade">
-      <p class="output-line">${t('about_result1')}</p>
-      <p class="output-line dim">${t('about_result2')}</p>
-    </div>
+    <div class="about-grid">
+      <div class="about-text-content">
+        <div class="cmd-line">
+          <span class="prompt-green">habib@portfolio</span><span class="separator">:</span>
+          <span class="path">~</span><span class="dollar">$</span>
+          <span class="cmd-text">${t('about_cmd1')}</span>
+        </div>
+        <div class="cmd-output output-fade">
+          <p class="output-line">${t('about_result1')}</p>
+          <p class="output-line dim">${t('about_result2')}</p>
+        </div>
 
-    <div class="cmd-line mt-2">
-      <span class="prompt-green">habib@portfolio</span><span class="separator">:</span>
-      <span class="path">~</span><span class="dollar">$</span>
-      <span class="cmd-text">${t('about_cmd2')}</span>
-    </div>
-    <div class="cmd-output output-fade">
-      <div class="about-card">
-        <p>┌─────────────────────────────────────────────────────────┐</p>
-        <p>│ <span class="highlight">NAME    :</span> ${t('about_name').padEnd(38)}│</p>
-        <p>│ <span class="highlight">ROLE    :</span> ${t('about_role').substring(0, 38).padEnd(38)}│</p>
-        <p>│ <span class="highlight">LOCATION:</span> ${t('about_loc').padEnd(38)}│</p>
-        <p>│ <span class="highlight">STATUS  :</span> <span class="blink-green">${t('about_status').padEnd(37)}</span>│</p>
-        <p>│ <span class="highlight">FOCUS   :</span> ${t('about_focus').substring(0, 38).padEnd(38)}│</p>
-        <p>└─────────────────────────────────────────────────────────┘</p>
+        <div class="cmd-line mt-2">
+          <span class="prompt-green">habib@portfolio</span><span class="separator">:</span>
+          <span class="path">~</span><span class="dollar">$</span>
+          <span class="cmd-text">${t('about_cmd2')}</span>
+        </div>
+        <div class="cmd-output output-fade">
+          <div class="about-card">
+            <p>┌───────────────────────────────────┐</p>
+            <p>│ <span class="highlight">NAME    :</span> ${t('about_name').padEnd(18)}│</p>
+            <p>│ <span class="highlight">ROLE    :</span> ${t('about_role').substring(0, 18).padEnd(18)}│</p>
+            <p>│ <span class="highlight">LOCATION:</span> ${t('about_loc').padEnd(18)}│</p>
+            <p>│ <span class="highlight">STATUS  :</span> <span class="blink-green">${t('about_status').padEnd(17)}</span>│</p>
+            <p>└───────────────────────────────────┘</p>
+          </div>
+        </div>
+
+        <div class="cmd-line mt-2">
+          <span class="prompt-green">habib@portfolio</span><span class="separator">:</span>
+          <span class="path">~</span><span class="dollar">$</span>
+          <span class="cmd-text">${t('about_cmd3')}</span>
+        </div>
+        <div class="cmd-output output-fade about-bio-text">
+          ${(t('about_bio') || []).map(line => `<p>${line || '&nbsp;'}</p>`).join('')}
+        </div>
+
+        <div class="cmd-line mt-2">
+          <span class="prompt-green">habib@portfolio</span><span class="separator">:</span>
+          <span class="path">~</span><span class="dollar">$</span>
+          <span class="cmd-text">${t('about_cmd4')}</span>
+        </div>
+        <div class="cmd-output output-fade">
+          <p class="output-line"><span class="highlight">${t('about_edu')}</span></p>
+          <p class="output-line dim">${t('about_edu_sub')}</p>
+        </div>
       </div>
-    </div>
 
-    <div class="cmd-line mt-2">
-      <span class="prompt-green">habib@portfolio</span><span class="separator">:</span>
-      <span class="path">~</span><span class="dollar">$</span>
-      <span class="cmd-text">${t('about_cmd3')}</span>
-    </div>
-    <div class="cmd-output output-fade about-bio-text">
-      ${(t('about_bio') || []).map(line => `<p>${line || '&nbsp;'}</p>`).join('')}
-    </div>
-
-    <div class="cmd-line mt-2">
-      <span class="prompt-green">habib@portfolio</span><span class="separator">:</span>
-      <span class="path">~</span><span class="dollar">$</span>
-      <span class="cmd-text">${t('about_cmd4')}</span>
-    </div>
-    <div class="cmd-output output-fade">
-      <p class="output-line"><span class="highlight">${t('about_edu')}</span></p>
-      <p class="output-line dim">${t('about_edu_sub')}</p>
-    </div>
-
-    <div class="cmd-line mt-2">
-      <span class="prompt-green">habib@portfolio</span><span class="separator">:</span>
-      <span class="path">~</span><span class="dollar">$</span>
-      <span class="cursor-blink-inline">█</span>
+      <div class="about-avatar-wrapper output-fade">
+        <div class="about-avatar-container">
+          <img src="assets/imgs/avatar_hacker.png" alt="Habib Profile" class="about-avatar">
+        </div>
+      </div>
     </div>
   `;
 }
@@ -895,7 +976,7 @@ function renderAbout() {
    ──────────────────────────────────────────────────────────────*/
 function renderProjects() {
   const el = document.getElementById('projects-content');
-  const badgeClass = { ACTIVE: 'active', LIVE: 'active', MAINTAINED: '' };
+  const badgeClass = { ACTIVE: 'active', LIVE: 'active', MAINTAINED: '', ACADEMIC: 'academic' };
 
   el.innerHTML = `
     <div class="cmd-line">
@@ -911,6 +992,16 @@ function renderProjects() {
         ${PROJECTS_DATA.map((p, i) => `
           <div class="project-card reveal" id="proj-${i}" style="animation-delay:${i * 0.07}s">
             <div class="project-badge ${badgeClass[p.badge] || ''}">${p.badge}</div>
+            
+            ${p.media ? `
+              <div class="project-media">
+                ${p.media.type === 'video'
+        ? `<div class="video-container"><iframe src="${p.media.url}?enablejsapi=1&origin=${encodeURIComponent(window.location.origin)}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe></div>`
+        : `<img src="${p.media.url}" alt="${p.name}" class="project-img" loading="lazy">`
+      }
+              </div>
+            ` : ''}
+
             <div class="project-dir dim">${p.dir}</div>
             <div class="project-name">${p.name}</div>
             <div class="project-desc">${p.desc[currentLang] || p.desc.en}</div>

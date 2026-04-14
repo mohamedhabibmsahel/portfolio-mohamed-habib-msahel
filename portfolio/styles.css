@@ -661,6 +661,52 @@ main {
   margin-bottom: 0.2rem;
 }
 
+/* ─── About Avatar Grid ─── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.about-avatar-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid var(--green-border);
+  padding: 8px;
+  background: rgba(0, 255, 0, 0.03);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.05);
+}
+
+.about-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.1) brightness(0.9);
+  display: block;
+}
+
+.about-avatar-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0, 255, 0, 0.05) 1px, rgba(0, 255, 0, 0.05) 2px);
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-avatar-container {
+    max-width: 280px;
+    margin: 0 auto 1.5rem auto;
+  }
+}
+
 /* ═══════════════════════════════════════════════
    OUTPUT ANIMATIONS
    ═══════════════════════════════════════════════ */
@@ -787,6 +833,73 @@ main {
   color: var(--green);
   border-color: var(--green);
   background: var(--green-muted);
+}
+
+/* ─── Project Media ─── */
+.project-media {
+  margin: 0.5rem -1.25rem 1rem -1.25rem;
+  background: var(--bg);
+  border-top: 1px solid var(--green-border);
+  border-bottom: 1px solid var(--green-border);
+  overflow: hidden;
+  position: relative;
+}
+
+.project-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 3px, 3px 100%;
+  opacity: 0.3;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  /* 16:9 Aspect Ratio */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: sepia(0.3) hue-rotate(90deg) brightness(0.9) contrast(1.1);
+  transition: filter 0.3s ease;
+}
+
+.project-card:hover iframe {
+  filter: sepia(0.1) hue-rotate(90deg) brightness(1) contrast(1);
+}
+
+.project-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(0.5) sepia(0.2) hue-rotate(90deg) brightness(0.8);
+  transition: var(--transition);
+}
+
+.project-card:hover .project-img {
+  filter: grayscale(0.2) brightness(1);
+  transform: scale(1.02);
+}
+
+.project-badge.academic {
+  background: rgba(0, 150, 255, 0.12);
+  color: #00d4ff;
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.project-badge.academic:hover {
+  background: rgba(0, 212, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
 }
 
 /* ═══════════════════════════════════════════════
