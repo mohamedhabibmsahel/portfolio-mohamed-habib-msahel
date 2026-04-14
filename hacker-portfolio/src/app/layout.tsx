@@ -13,7 +13,23 @@ export const metadata: Metadata = {
   openGraph: {
     title: "HabibOS v3.0 — Hacker Terminal Portfolio",
     description: "Enter the system. Discover the developer.",
+    url: "https://mohamedhabibmsahel.github.io/portfolio-mohamed-habib-msahel/",
+    siteName: "HabibOS",
+    images: [
+      {
+        url: "/portfolio-mohamed-habib-msahel/assets/avatar_hacker.png", // Fallback to avatar if no hero exists
+        width: 800,
+        height: 800,
+      },
+    ],
+    locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "HabibOS v3.0 | Mohamed Habib Msahel",
+    description: "Interactive hacker terminal portfolio. Enter if you dare.",
+    images: ["/portfolio-mohamed-habib-msahel/assets/avatar_hacker.png"],
   },
 };
 
