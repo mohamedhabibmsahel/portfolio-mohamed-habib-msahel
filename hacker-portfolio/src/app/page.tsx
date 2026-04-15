@@ -517,7 +517,7 @@ function ContactForm({
         {[
           { label: 'GitHub', url: 'https://github.com/mohamedhabibmsahel' },
           { label: 'LinkedIn', url: 'https://www.linkedin.com/in/mohamed-habib-m-sahel-9bb5a0217' },
-          { label: 'Email', url: 'mailto:habib.msahel@email.com' },
+          { label: 'Email', url: 'mailto:msahel.medhabib@gmail.com' },
         ].map(l => (
           <a
             key={l.label}

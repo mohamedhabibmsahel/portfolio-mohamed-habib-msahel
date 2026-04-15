@@ -151,8 +151,8 @@ ${d.about_bio.map(l => `<p style="color:var(--white)">${l || '&nbsp;'}</p>`).joi
         const isClassified = p.classified && !classifiedUnlocked;
         const badgeCls = p.badge === 'ACTIVE' || p.badge === 'LIVE' ? 'hl-green'
           : p.badge === 'ACADEMIC' ? 'hl-cyan'
-          : p.badge === 'CLASSIFIED' ? 'hl-red'
-          : 'hl-dim';
+            : p.badge === 'CLASSIFIED' ? 'hl-red'
+              : 'hl-dim';
         print(`<p>
 <span class="hl-dim">${p.dir.padEnd(42)}</span>
 <span class="${badgeCls}" style="margin-right:8px">[${p.badge}]</span>
@@ -178,10 +178,10 @@ ${d.about_bio.map(l => `<p style="color:var(--white)">${l || '&nbsp;'}</p>`).joi
         ).join('');
         const levelLabel = s.levelKey === 'expert' ? d.level_expert
           : s.levelKey === 'advanced' ? d.level_advanced
-          : d.level_intermediate;
+            : d.level_intermediate;
         const levelColor = s.levelKey === 'expert' ? 'hl-green'
           : s.levelKey === 'advanced' ? 'hl-cyan'
-          : 'hl-yellow';
+            : 'hl-yellow';
         print(`<p>
 <span class="hl-dim" style="min-width:28px;display:inline-block">${s.pid}</span>
 <span style="color:var(--white);min-width:220px;display:inline-block">${s.name}</span>
@@ -208,7 +208,7 @@ ${d.about_bio.map(l => `<p style="color:var(--white)">${l || '&nbsp;'}</p>`).joi
 <p>&nbsp;</p>
 <p><span class="hl-green">${links[0]}</span> <a href="https://github.com/mohamedhabibmsahel" target="_blank" style="color:var(--cyan)">github.com/mohamedhabibmsahel</a></p>
 <p><span class="hl-green">${links[1]}</span> <a href="https://www.linkedin.com/in/mohamed-habib-m-sahel-9bb5a0217" target="_blank" style="color:var(--cyan)">linkedin.com/in/mohamed-habib-m-sahel-9bb5a0217</a></p>
-<p><span class="hl-green">${links[2]}</span> <a href="mailto:habib.msahel@email.com" style="color:var(--cyan)">habib.msahel@email.com</a></p>
+<p><span class="hl-green">${links[2]}</span> <a href="mailto:msahel.medhabib@gmail.com" style="color:var(--cyan)">msahel.medhabib@gmail.com</a></p>
 <p>&nbsp;</p>
 <p class="hl-dim">${d.cmd_contact_scroll}</p>`);
   }
@@ -506,7 +506,7 @@ ${p.demo && !p.demo.includes('youtube') ? `<p>│ <span class="hl-green">Demo  :
     } else {
       cmdUnknown(trimmed.split(' ')[0]);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lang, classifiedUnlocked, d, printPrompt, print, onLangChange, onSwitchMode, onOpenGame, onOpenContact, onUnlockClassified]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

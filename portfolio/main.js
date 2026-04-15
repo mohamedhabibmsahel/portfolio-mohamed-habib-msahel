@@ -1233,7 +1233,7 @@ const TerminalEngine = (function () {
 <p>&nbsp;</p>
 <p>  <span class="success">${linkLabels[0]}</span> <a href="https://github.com/habibmsahel" target="_blank" style="color:var(--cyan)">github.com/habibmsahel</a></p>
 <p>  <span class="success">${linkLabels[1]}</span> <a href="https://linkedin.com/in/habibmsahel" target="_blank" style="color:var(--cyan)">linkedin.com/in/habibmsahel</a></p>
-<p>  <span class="success">${linkLabels[2]}</span> <a href="mailto:habib.msahel@email.com" style="color:var(--cyan)">habib.msahel@email.com</a></p>
+<p>  <span class="success">${linkLabels[2]}</span> <a href="mailto:msahel.medhabib@gmail.com" style="color:var(--cyan)">msahel.medhabib@gmail.com</a></p>
 <p>&nbsp;</p>
 <p class="dim">${t('cmd_contact_scroll')}</p>`);
   }
