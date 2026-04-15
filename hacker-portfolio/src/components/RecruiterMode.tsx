@@ -66,7 +66,7 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
       {/* Navbar */}
       <nav className="r-nav">
         <div className="r-logo">MHM.dev</div>
-        
+
         {/* Desktop Nav */}
         <div className="r-nav-desktop" style={{ display: 'flex', gap: 24, alignItems: 'center' }}>
           {[
@@ -123,7 +123,7 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
         </div>
 
         {/* Mobile Hamburger */}
-        <button 
+        <button
           className="r-nav-mobile"
           onClick={() => { setIsMobileMenuOpen(!isMobileMenuOpen); Sound.click(); }}
           style={{
@@ -132,9 +132,9 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
           }}
         >
           {isMobileMenuOpen ? (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12" /></svg>
           ) : (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg>
           )}
         </button>
       </nav>
@@ -308,9 +308,9 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
                 </button>
               </div>
             </div>
-            
+
             {/* Avatar Image */}
-            <motion.div 
+            <motion.div
               style={{ flex: '0 1 300px', display: 'flex', justifyContent: 'center' }}
               whileHover={{ scale: 1.05 }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
@@ -320,13 +320,13 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
                 background: 'linear-gradient(135deg, var(--r-accent), var(--r-accent2))',
                 boxShadow: '0 0 30px rgba(99,102,241,0.3)'
               }}>
-                <img 
-                  src="/portfolio-mohamed-habib-msahel/assets/avatar_hacker.png" 
-                  alt="Habib Hacker Avatar" 
-                  style={{ 
-                    width: '100%', height: '100%', objectFit: 'cover', 
-                    borderRadius: '50%', backgroundColor: '#000' 
-                  }} 
+                <img
+                  src="/portfolio-mohamed-habib-msahel/assets/avatar_hacker.png"
+                  alt="Habib Hacker Avatar"
+                  style={{
+                    width: '100%', height: '100%', objectFit: 'cover',
+                    borderRadius: '50%', backgroundColor: '#000'
+                  }}
                 />
               </div>
             </motion.div>
@@ -375,7 +375,7 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
               org: 'Lebosphore',
               desc: lang === 'fr' ? 'Développement d\'applications mobiles hybrides avec Flutter et conception du backend avec Node.js & MySQL.'
                 : lang === 'ar' ? 'تطوير تطبيقات محمولة باستخدام Flutter وبناء الخلفية باستخدام Node.js و MySQL.'
-                : 'Developed hybrid mobile applications with Flutter and designed backend architecture using Node.js & MySQL.',
+                  : 'Developed hybrid mobile applications with Flutter and designed backend architecture using Node.js & MySQL.',
               type: 'work',
             },
             {
@@ -384,7 +384,7 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
               org: 'The Landlord',
               desc: lang === 'fr' ? 'Développement d\'applications mobile et web de gestion immobilière avec bases de données MySQL.'
                 : lang === 'ar' ? 'تطوير تطبيقات الويب والموبايل لإدارة العقارات وبناء الخلفية الخاصة بها.'
-                : 'Built a real-estate management mobile and web application with backend database integration.',
+                  : 'Built a real-estate management mobile and web application with backend database integration.',
               type: 'work',
             },
             {
@@ -393,7 +393,7 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
               org: 'ArcanaSoft',
               desc: lang === 'fr' ? 'Conception et réalisation d\'une application Flutter destinée aux services de nettoyage et de stérilisation.'
                 : lang === 'ar' ? 'تصميم وتنفيذ تطبيق لخدمات التنظيف والتعقيم باستخدام Flutter.'
-                : 'Designed and implemented an application for cleaning and sterilization services using Flutter.',
+                  : 'Designed and implemented an application for cleaning and sterilization services using Flutter.',
               type: 'work',
             },
             {
@@ -402,7 +402,7 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
               org: 'ESPRIT',
               desc: lang === 'fr' ? 'Cycle d\'ingénieur en informatique à l\'École Supérieure Privée d\'Ingénierie et de Technologie (Tunis).'
                 : lang === 'ar' ? 'دورة الهندسة في المدرسة العليا الخاصة للهندسة والتكنولوجيا بتونس.'
-                : 'Computer Science Engineering cycle at the Higher Private School of Engineering and Technology (Tunis).',
+                  : 'Computer Science Engineering cycle at the Higher Private School of Engineering and Technology (Tunis).',
               type: 'edu',
             },
           ].map((item, i) => (
@@ -474,7 +474,7 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
                   fontSize: 9, padding: '2px 8px', borderRadius: 20, letterSpacing: 1,
                   background: p.badge === 'ACTIVE' || p.badge === 'LIVE'
                     ? 'rgba(16,185,129,0.12)' : p.badge === 'ACADEMIC'
-                    ? 'rgba(6,182,212,0.12)' : 'rgba(99,102,241,0.12)',
+                      ? 'rgba(6,182,212,0.12)' : 'rgba(99,102,241,0.12)',
                   color: p.badge === 'ACTIVE' || p.badge === 'LIVE' ? '#10b981'
                     : p.badge === 'ACADEMIC' ? 'var(--r-accent2)' : 'var(--r-accent)',
                   border: `1px solid ${p.badge === 'ACTIVE' || p.badge === 'LIVE' ? 'rgba(16,185,129,0.25)'
@@ -638,10 +638,10 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
           <p style={{ color: 'var(--r-muted)', fontSize: 15, marginBottom: 32, maxWidth: 500, margin: '0 auto 32px' }}>
             {lang === 'ar' ? 'أنا متاح للفرص الجديدة. تواصل معي!'
               : lang === 'fr' ? 'Je suis disponible pour de nouvelles opportunités. Contactez-moi!'
-              : "I'm open to new opportunities. Let's build something great together!"}
+                : "I'm open to new opportunities. Let's build something great together!"}
           </p>
           <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="mailto:habib.msahel@email.com" className="r-btn">
+            <a href="mailto:msahel.medhabib@gmail.com" className="r-btn">
               ✉ {lang === 'ar' ? 'إرسال بريد' : lang === 'fr' ? 'Envoyer Email' : 'Send Email'}
             </a>
             <a
@@ -736,11 +736,11 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
                       <img src={selectedProject.media.url} alt={selectedProject.name} style={{ width: '100%', display: 'block' }} />
                     ) : (
                       <div className="video-wrapper" style={{ aspectRatio: '16/9' }}>
-                         <iframe 
-                           src={selectedProject.media.url} 
-                           allowFullScreen 
-                           style={{ border: 'none', width: '100%', height: '100%' }} 
-                         />
+                        <iframe
+                          src={selectedProject.media.url}
+                          allowFullScreen
+                          style={{ border: 'none', width: '100%', height: '100%' }}
+                        />
                       </div>
                     )}
                   </div>
@@ -812,23 +812,23 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
       </AnimatePresence>
 
       {/* Footer */}
-      <footer style={{ 
-        textAlign: 'center', color: 'var(--r-muted)', fontSize: 12, 
+      <footer style={{
+        textAlign: 'center', color: 'var(--r-muted)', fontSize: 12,
         padding: '60px 0 20px', display: 'flex', flexDirection: 'column', gap: 16
       }}>
         <div style={{ display: 'flex', justifyContent: 'center', gap: 24 }}>
-          <a 
-            href="https://github.com/mohamedhabibmsahel" 
-            target="_blank" rel="noopener noreferrer" 
+          <a
+            href="https://github.com/mohamedhabibmsahel"
+            target="_blank" rel="noopener noreferrer"
             style={{ color: 'inherit', transition: 'color 0.2s', opacity: 0.7 }}
             onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
             onMouseLeave={e => (e.currentTarget.style.opacity = '0.7')}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
           </a>
-          <a 
-            href="https://www.linkedin.com/in/mohamed-habib-m-sahel-9bb5a0217" 
-            target="_blank" rel="noopener noreferrer" 
+          <a
+            href="https://www.linkedin.com/in/mohamed-habib-m-sahel-9bb5a0217"
+            target="_blank" rel="noopener noreferrer"
             style={{ color: 'inherit', transition: 'color 0.2s', opacity: 0.7 }}
             onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
             onMouseLeave={e => (e.currentTarget.style.opacity = '0.7')}

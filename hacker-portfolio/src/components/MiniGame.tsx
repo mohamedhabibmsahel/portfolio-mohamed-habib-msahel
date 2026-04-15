@@ -3,6 +3,8 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { type Lang, I18N } from '@/data/i18n';
 import { Sound } from './SoundEngine';
+import SnakeGame from './SnakeGame';
+import WordleGame from './WordleGame';
 
 interface MiniGameProps {
   lang: Lang;
@@ -11,6 +13,7 @@ interface MiniGameProps {
 }
 
 type GameState = 'idle' | 'playing' | 'won' | 'lost';
+type ActiveGame = 'menu' | 'number' | 'binary' | 'snake' | 'wordle';
 
 interface LogEntry {
   attempt: number;
@@ -29,7 +32,7 @@ export default function MiniGame({ lang, onClose, onWin }: MiniGameProps) {
   const [log, setLog] = useState<LogEntry[]>([]);
   const [statusMsg, setStatusMsg] = useState('');
   const [crackProgress, setCrackProgress] = useState(0);
-  const [showBinaryChallenge, setShowBinaryChallenge] = useState(false);
+  const [activeGame, setActiveGame] = useState<ActiveGame>('menu');
   const [binaryAnswer, setBinaryAnswer] = useState('');
   const [binaryStatus, setBinaryStatus] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
@@ -43,7 +46,7 @@ export default function MiniGame({ lang, onClose, onWin }: MiniGameProps) {
     setStatusMsg('');
     setCrackProgress(0);
     setGameState('playing');
-    setShowBinaryChallenge(false);
+    setActiveGame('number');
     setTimeout(() => inputRef.current?.focus(), 100);
   }
 
@@ -101,13 +104,26 @@ export default function MiniGame({ lang, onClose, onWin }: MiniGameProps) {
       setBinaryStatus('🔓 CORRECT! Binary decoded successfully.');
       Sound.access();
       setTimeout(() => {
-        setShowBinaryChallenge(false);
+        setActiveGame('menu');
+        setBinaryAnswer('');
+        setBinaryStatus('');
         onWin();
       }, 1500);
     } else {
       setBinaryStatus('❌ Incorrect. Try again.');
       Sound.error();
     }
+  }
+
+  function handleSubGameWin() {
+    setGameState('won');
+    Sound.access();
+    onWin();
+  }
+
+  function handleSubGameLose() {
+    setGameState('lost');
+    Sound.denied();
   }
 
   return (
@@ -148,8 +164,69 @@ export default function MiniGame({ lang, onClose, onWin }: MiniGameProps) {
             </button>
           </div>
 
-          {/* Idle state */}
-          {gameState === 'idle' && (
+          {/* Idle state -> Menu */}
+          {gameState === 'idle' && activeGame === 'menu' && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              <p style={{ color: 'var(--white)', marginBottom: 8, fontSize: 13 }}>
+                Select an executable to run:
+              </p>
+
+              <button
+                onClick={() => setActiveGame('number')}
+                style={{
+                  background: 'rgba(0,255,0,0.05)', border: '1px solid var(--green)',
+                  color: 'var(--green)', fontFamily: 'var(--font-mono)', textAlign: 'left',
+                  fontSize: 13, padding: '10px 16px', borderRadius: 4, cursor: 'pointer',
+                  letterSpacing: 1, display: 'flex', justifyContent: 'space-between'
+                }}
+              >
+                <span>./crack_mainframe.sh</span>
+                <span style={{ color: 'var(--dim)', fontSize: 11 }}>[NUMBER GUESS]</span>
+              </button>
+
+              <button
+                onClick={() => setActiveGame('binary')}
+                style={{
+                  background: 'rgba(0,255,255,0.05)', border: '1px solid var(--cyan)',
+                  color: 'var(--cyan)', fontFamily: 'var(--font-mono)', textAlign: 'left',
+                  fontSize: 13, padding: '10px 16px', borderRadius: 4, cursor: 'pointer',
+                  letterSpacing: 1, display: 'flex', justifyContent: 'space-between'
+                }}
+              >
+                <span>./binary_decode.sh</span>
+                <span style={{ color: 'var(--dim)', fontSize: 11 }}>[DECODE]</span>
+              </button>
+
+              <button
+                onClick={() => setActiveGame('snake')}
+                style={{
+                  background: 'rgba(255,255,0,0.05)', border: '1px solid var(--yellow)',
+                  color: 'var(--yellow)', fontFamily: 'var(--font-mono)', textAlign: 'left',
+                  fontSize: 13, padding: '10px 16px', borderRadius: 4, cursor: 'pointer',
+                  letterSpacing: 1, display: 'flex', justifyContent: 'space-between'
+                }}
+              >
+                <span>./net_worm.exe</span>
+                <span style={{ color: 'var(--dim)', fontSize: 11 }}>[SNAKE VIRUS]</span>
+              </button>
+
+              <button
+                onClick={() => setActiveGame('wordle')}
+                style={{
+                  background: 'rgba(255,0,255,0.05)', border: '1px solid #ff00ff',
+                  color: '#ff00ff', fontFamily: 'var(--font-mono)', textAlign: 'left',
+                  fontSize: 13, padding: '10px 16px', borderRadius: 4, cursor: 'pointer',
+                  letterSpacing: 1, display: 'flex', justifyContent: 'space-between'
+                }}
+              >
+                <span>./brute_force.sh</span>
+                <span style={{ color: 'var(--dim)', fontSize: 11 }}>[WORD CRACK]</span>
+              </button>
+            </motion.div>
+          )}
+
+          {/* Number guess intro */}
+          {gameState === 'idle' && activeGame === 'number' && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <p style={{ color: 'var(--white)', marginBottom: 12 }}>
                 {d.game_intro1} <span style={{ color: 'var(--yellow)' }}>1–100</span>.
@@ -168,28 +245,27 @@ export default function MiniGame({ lang, onClose, onWin }: MiniGameProps) {
                     letterSpacing: 1,
                   }}
                 >
-                  ./crack_mainframe.sh
+                  START
                 </button>
                 <button
-                  onClick={() => setShowBinaryChallenge(true)}
+                  onClick={() => setActiveGame('menu')}
                   style={{
-                    background: 'rgba(0,255,255,0.06)', border: '1px solid var(--cyan)',
-                    color: 'var(--cyan)', fontFamily: 'var(--font-mono)',
-                    fontSize: 12, padding: '10px 18px', borderRadius: 4, cursor: 'pointer',
+                    marginTop: 10, background: 'transparent', border: 'none',
+                    color: 'var(--dim)', fontFamily: 'var(--font-mono)',
+                    fontSize: 11, cursor: 'pointer', padding: 0,
                   }}
                 >
-                  binary_decode.sh
+                  ← back to menu
                 </button>
               </div>
             </motion.div>
           )}
 
           {/* Binary challenge */}
-          {showBinaryChallenge && (
+          {gameState === 'idle' && activeGame === 'binary' && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              style={{ marginTop: 8 }}
             >
               <p style={{ color: 'var(--cyan)', marginBottom: 8 }}>🔢 BINARY DECODING CHALLENGE</p>
               <div style={{
@@ -232,16 +308,36 @@ export default function MiniGame({ lang, onClose, onWin }: MiniGameProps) {
                 </p>
               )}
               <button
-                onClick={() => setShowBinaryChallenge(false)}
+                onClick={() => setActiveGame('menu')}
                 style={{
-                  marginTop: 10, background: 'transparent', border: 'none',
+                  marginTop: 16, background: 'transparent', border: 'none',
                   color: 'var(--dim)', fontFamily: 'var(--font-mono)',
                   fontSize: 11, cursor: 'pointer', padding: 0,
                 }}
               >
-                ← back to main game
+                ← back to menu
               </button>
             </motion.div>
+          )}
+
+          {/* Snake Game */}
+          {gameState === 'idle' && activeGame === 'snake' && (
+             <SnakeGame
+                lang={lang}
+                onWin={handleSubGameWin}
+                onLose={handleSubGameLose}
+                onBack={() => setActiveGame('menu')}
+             />
+          )}
+
+          {/* Wordle Game */}
+          {gameState === 'idle' && activeGame === 'wordle' && (
+             <WordleGame
+                lang={lang}
+                onWin={handleSubGameWin}
+                onLose={handleSubGameLose}
+                onBack={() => setActiveGame('menu')}
+             />
           )}
 
           {/* Playing state */}
@@ -362,18 +458,23 @@ export default function MiniGame({ lang, onClose, onWin }: MiniGameProps) {
               </div>
               <div
                 style={{ color: 'var(--white)', fontSize: 13, marginBottom: 20 }}
-                dangerouslySetInnerHTML={{ __html: d.game_cracked(secret, attempts) }}
-              />
+              >
+                {activeGame === 'number' ? (
+                  <span dangerouslySetInnerHTML={{ __html: d.game_cracked(secret, attempts) }} />
+                ) : (
+                  <span>Security bypassed successfully. Payload delivered.</span>
+                )}
+              </div>
               <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
                 <button
-                  onClick={startGame}
+                  onClick={() => { setGameState('idle'); setActiveGame('menu'); }}
                   style={{
                     background: 'rgba(0,255,0,0.1)', border: '1px solid var(--green)',
                     color: 'var(--green)', fontFamily: 'var(--font-mono)',
                     fontSize: 12, padding: '8px 20px', borderRadius: 4, cursor: 'pointer',
                   }}
                 >
-                  ./restart_game.sh
+                  ← menu
                 </button>
                 <button
                   onClick={onClose}
@@ -402,18 +503,23 @@ export default function MiniGame({ lang, onClose, onWin }: MiniGameProps) {
               </div>
               <div
                 style={{ color: 'var(--dim)', fontSize: 13, marginBottom: 20 }}
-                dangerouslySetInnerHTML={{ __html: d.game_locked(secret) }}
-              />
+              >
+                {activeGame === 'number' ? (
+                  <span dangerouslySetInnerHTML={{ __html: d.game_locked(secret) }} />
+                ) : (
+                  <span>Access revoked. Connection terminated.</span>
+                )}
+              </div>
               <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
                 <button
-                  onClick={startGame}
+                  onClick={() => { setGameState('idle'); setActiveGame('menu'); }}
                   style={{
                     background: 'rgba(255,0,64,0.08)', border: '1px solid var(--red)',
                     color: 'var(--red)', fontFamily: 'var(--font-mono)',
                     fontSize: 12, padding: '8px 20px', borderRadius: 4, cursor: 'pointer',
                   }}
                 >
-                  ./restart_game.sh
+                  ← menu
                 </button>
                 <button
                   onClick={onClose}
