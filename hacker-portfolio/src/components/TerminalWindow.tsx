@@ -105,17 +105,17 @@ export default function TerminalWindow({
     print(`
 <p class="hl-cyan">╔══════════ HabibOS v3.0 — HELP ══════════════╗</p>
 <p>&nbsp;</p>
-<p><span class="hl-green" style="min-width:120px;display:inline-block">about</span><span class="hl-dim">——</span> whoami / profile info</p>
-<p><span class="hl-green" style="min-width:120px;display:inline-block">projects</span><span class="hl-dim">——</span> ls -la ~/projects</p>
-<p><span class="hl-green" style="min-width:120px;display:inline-block">skills</span><span class="hl-dim">——</span> htop --skills</p>
-<p><span class="hl-green" style="min-width:120px;display:inline-block">contact</span><span class="hl-dim">——</span> cat links.txt</p>
-<p><span class="hl-green" style="min-width:120px;display:inline-block">cv</span><span class="hl-dim">——</span> open / download resume</p>
-<p><span class="hl-green" style="min-width:120px;display:inline-block">hack</span><span class="hl-dim">——</span> simulate CVE exploit 👾</p>
-<p><span class="hl-green" style="min-width:120px;display:inline-block">game</span><span class="hl-dim">——</span> ./crack_mainframe.sh 🔐</p>
-<p><span class="hl-green" style="min-width:120px;display:inline-block">switch-mode</span><span class="hl-dim">——</span> toggle hacker ↔ recruiter UI</p>
-<p><span class="hl-green" style="min-width:120px;display:inline-block">lang &lt;en|fr|ar&gt;</span><span class="hl-dim">——</span> change language</p>
-<p><span class="hl-green" style="min-width:120px;display:inline-block">neofetch</span><span class="hl-dim">——</span> system info</p>
-<p><span class="hl-green" style="min-width:120px;display:inline-block">whoami ls pwd date uname echo cat sudo exit clear</span></p>
+<p><span class="hl-green cmd-help-name">about</span><span class="hl-dim">——</span> whoami / profile info</p>
+<p><span class="hl-green cmd-help-name">projects</span><span class="hl-dim">——</span> ls -la ~/projects</p>
+<p><span class="hl-green cmd-help-name">skills</span><span class="hl-dim">——</span> htop --skills</p>
+<p><span class="hl-green cmd-help-name">contact</span><span class="hl-dim">——</span> cat links.txt</p>
+<p><span class="hl-green cmd-help-name">cv</span><span class="hl-dim">——</span> open / download resume</p>
+<p><span class="hl-green cmd-help-name">hack</span><span class="hl-dim">——</span> simulate CVE exploit 👾</p>
+<p><span class="hl-green cmd-help-name">game</span><span class="hl-dim">——</span> ./crack_mainframe.sh 🔐</p>
+<p><span class="hl-green cmd-help-name">switch-mode</span><span class="hl-dim">——</span> toggle hacker ↔ recruiter UI</p>
+<p><span class="hl-green cmd-help-name">lang &lt;en|fr|ar&gt;</span><span class="hl-dim">——</span> change language</p>
+<p><span class="hl-green cmd-help-name">neofetch</span><span class="hl-dim">——</span> system info</p>
+<p><span class="hl-green">whoami ls pwd date uname echo cat sudo exit clear</span></p>
 <p>&nbsp;</p>
 <p class="hl-cyan">╚═════════════════════════════════════════════╝</p>
 <p class="hl-yellow" style="margin-top:4px">  ${d.help_footer}</p>`);
@@ -182,12 +182,12 @@ ${d.about_bio.map(l => `<p style="color:var(--white)">${l || '&nbsp;'}</p>`).joi
         const levelColor = s.levelKey === 'expert' ? 'hl-green'
           : s.levelKey === 'advanced' ? 'hl-cyan'
             : 'hl-yellow';
-        print(`<p>
-<span class="hl-dim" style="min-width:28px;display:inline-block">${s.pid}</span>
-<span style="color:var(--white);min-width:220px;display:inline-block">${s.name}</span>
-<span class="${levelColor}" style="min-width:90px;display:inline-block">${levelLabel}</span>
-<span>[${bar}]</span>
-<span class="hl-yellow" style="margin-left:8px">${s.pct}%</span>
+        print(`<p class="skill-row">
+<span class="hl-dim skill-pid">${s.pid}</span>
+<span class="skill-name" style="color:var(--white);">${s.name}</span>
+<span class="${levelColor} skill-level">${levelLabel}</span>
+<span class="skill-bar-ascii">[${bar}]</span>
+<span class="hl-yellow skill-pct">${s.pct}%</span>
 </p>`);
         Sound.key();
       }, i * 90);
@@ -618,8 +618,8 @@ ${p.demo && !p.demo.includes('youtube') ? `<p>│ <span class="hl-green">Demo  :
             >
               {line.type === 'prompt' ? (
                 <div className="term-line" style={{ marginBottom: 2 }}>
-                  <span className="prompt-green">habib@portfolio</span>
-                  <span className="separator">:</span>
+                  <span className="prompt-green prompt-mobile-hide">habib@portfolio</span>
+                  <span className="separator prompt-mobile-hide">:</span>
                   <span className="path">~</span>
                   <span className="dollar">$</span>
                   <span style={{ color: 'var(--white)', marginLeft: '0.35rem' }}>
@@ -641,8 +641,8 @@ ${p.demo && !p.demo.includes('youtube') ? `<p>│ <span class="hl-green">Demo  :
 
       {/* Input row */}
       <div className="input-row">
-        <span className="prompt-green">habib@portfolio</span>
-        <span className="separator">:</span>
+        <span className="prompt-green prompt-mobile-hide">habib@portfolio</span>
+        <span className="separator prompt-mobile-hide">:</span>
         <span className="path">~</span>
         <span className="dollar">$</span>
         <div style={{ flex: 1, position: 'relative', display: 'flex', alignItems: 'center' }}>
