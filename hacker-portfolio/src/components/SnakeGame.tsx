@@ -26,7 +26,7 @@ export default function SnakeGame({ lang, onWin, onLose, onBack }: SnakeGameProp
   const [isPaused, setIsPaused] = useState(false);
 
   const dirRef = useRef(dir);
-  
+
   useEffect(() => {
     dirRef.current = dir;
   }, [dir]);
@@ -50,11 +50,11 @@ export default function SnakeGame({ lang, onWin, onLose, onBack }: SnakeGameProp
     if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
       e.preventDefault();
     }
-    
+
     if (isGameOver) return;
-    
+
     const { x, y } = dirRef.current;
-    
+
     switch (e.key) {
       case 'ArrowUp':
       case 'w':
@@ -81,6 +81,42 @@ export default function SnakeGame({ lang, onWin, onLose, onBack }: SnakeGameProp
         break;
     }
   }, [isGameOver]);
+
+  const handleDirection = useCallback((newDx: number, newDy: number) => {
+    if (isGameOver || isPaused) return;
+    const { x, y } = dirRef.current;
+    if (newDx !== 0 && x !== -newDx) setDir({ x: newDx, y: 0 });
+    else if (newDy !== 0 && y !== -newDy) setDir({ x: 0, y: newDy });
+  }, [isGameOver, isPaused]);
+
+  const touchStartRef = useRef<{ x: number, y: number } | null>(null);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartRef.current = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY
+    };
+  }, []);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (!touchStartRef.current || isGameOver) return;
+
+    const touchEndX = e.touches[0].clientX;
+    const touchEndY = e.touches[0].clientY;
+
+    const dx = touchEndX - touchStartRef.current.x;
+    const dy = touchEndY - touchStartRef.current.y;
+
+    if (Math.abs(dx) < 30 && Math.abs(dy) < 30) return;
+
+    if (Math.abs(dx) > Math.abs(dy)) {
+      handleDirection(dx > 0 ? 1 : -1, 0);
+    } else {
+      handleDirection(0, dy > 0 ? 1 : -1);
+    }
+
+    touchStartRef.current = null;
+  }, [isGameOver, handleDirection]);
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown, { passive: false });
@@ -122,7 +158,7 @@ export default function SnakeGame({ lang, onWin, onLose, onBack }: SnakeGameProp
           Sound.key();
           const newScore = score + 1;
           setScore(newScore);
-          
+
           if (newScore >= WIN_SCORE) {
             Sound.success();
             onWin();
@@ -146,24 +182,28 @@ export default function SnakeGame({ lang, onWin, onLose, onBack }: SnakeGameProp
       <div style={{ color: 'var(--green)', fontSize: 13, marginBottom: 12, letterSpacing: 1, opacity: 0.8 }}>
         Execute net_worm.exe --target=packets
       </div>
-      
+
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', maxWidth: 280, marginBottom: 8 }}>
         <span style={{ color: 'var(--dim)', fontSize: 12 }}>SCORE: <span style={{ color: 'var(--green)' }}>{score}</span>/{WIN_SCORE}</span>
         {isPaused && <span style={{ color: 'var(--yellow)', fontSize: 12 }} className="blink">PAUSED</span>}
       </div>
 
       {/* Grid container */}
-      <div style={{
-        background: 'var(--bg)',
-        border: '2px solid var(--border)',
-        boxShadow: '0 0 10px rgba(0,255,0,0.1)',
-        display: 'grid',
-        gridTemplateColumns: `repeat(${GRID_SIZE}, 1fr)`,
-        gridTemplateRows: `repeat(${GRID_SIZE}, 1fr)`,
-        width: 280,
-        height: 280,
-        position: 'relative'
-      }}>
+      <div
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        style={{
+          background: 'var(--bg)',
+          border: '2px solid var(--border)',
+          boxShadow: '0 0 10px rgba(0,255,0,0.1)',
+          display: 'grid',
+          gridTemplateColumns: `repeat(${GRID_SIZE}, 1fr)`,
+          gridTemplateRows: `repeat(${GRID_SIZE}, 1fr)`,
+          width: 280,
+          height: 280,
+          position: 'relative',
+          touchAction: 'none'
+        }}>
         {/* Draw cells */}
         {Array.from({ length: GRID_SIZE * GRID_SIZE }).map((_, i) => {
           const x = i % GRID_SIZE;
@@ -208,10 +248,48 @@ export default function SnakeGame({ lang, onWin, onLose, onBack }: SnakeGameProp
         )}
       </div>
 
-      <div style={{ color: 'var(--dim)', fontSize: 10, marginTop: 16 }}>
-        Use Arrow Keys or W A S D to move. Space to pause.
+      <style>{`
+        .mobile-dpad {
+          display: none;
+        }
+        @media (max-width: 768px) {
+          .mobile-dpad {
+            display: grid;
+            grid-template-columns: repeat(3, 45px);
+            grid-template-rows: repeat(2, 45px);
+            gap: 6px;
+            margin-top: 16px;
+          }
+        }
+        .dpad-btn {
+          background: rgba(0, 255, 0, 0.05);
+          border: 1px solid var(--green);
+          color: var(--green);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 20px;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        .dpad-btn:active {
+          background: rgba(0, 255, 0, 0.3);
+        }
+      `}</style>
+
+      <div className="mobile-dpad">
+        <div />
+        <button className="dpad-btn" onClick={() => handleDirection(0, -1)}>↑</button>
+        <div />
+        <button className="dpad-btn" onClick={() => handleDirection(-1, 0)}>←</button>
+        <button className="dpad-btn" onClick={() => handleDirection(0, 1)}>↓</button>
+        <button className="dpad-btn" onClick={() => handleDirection(1, 0)}>→</button>
       </div>
-      
+
+      <div style={{ color: 'var(--dim)', fontSize: 10, marginTop: 16, textAlign: 'center', maxWidth: 280 }}>
+        Use Arrow Keys, swipe, or on-screen controls to move. Space to pause.
+      </div>
+
       <button
         onClick={onBack}
         style={{
