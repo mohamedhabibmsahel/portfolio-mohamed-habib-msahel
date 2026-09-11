@@ -51,7 +51,7 @@ export default function StatusBar({ mode }: StatusBarProps) {
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span>Mohamed Habib Msahel</span>
           <span style={{ color: '#6366f1' }}>●</span>
-          <span>Full-Stack & Mobile Developer</span>
+          <span>Mobile Engineer · Flutter &amp; Dart</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span>Tunisia 🇹🇳</span>

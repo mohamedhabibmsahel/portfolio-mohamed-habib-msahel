@@ -48,7 +48,7 @@ export default function ProjectsPanel({ lang, classifiedUnlocked }: ProjectsPane
           </span>
         </div>
         <div style={{ color: 'var(--dim)', fontSize: 11, marginTop: 6 }}>
-          {lang === 'fr' ? 'total 13 projets' : lang === 'ar' ? 'إجمالي 13 مشروعاً' : 'total 13 projects'} | drwxr-xr-x Apr 14 2026
+          {lang === 'fr' ? `total ${PROJECTS.length} projets` : lang === 'ar' ? `إجمالي ${PROJECTS.length} مشروعاً` : `total ${PROJECTS.length} projects`} | drwxr-xr-x Apr 14 2026
         </div>
       </div>
 

@@ -107,7 +107,7 @@ const EN: I18nDict = {
     { text: '  ██║  ██║██║  ██║██████╔╝██║██████╔╝', cls: 'boot-bold', delay: 3200 },
     { text: '  ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚═╝╚═════╝ ', cls: 'boot-bold', delay: 3300 },
     { text: '', cls: '', delay: 3400 },
-    { text: '  Mohamed Habib Msahel — Full-Stack & Mobile Developer', cls: 'boot-hi', delay: 3500 },
+    { text: '  Mohamed Habib Msahel — Mobile Engineer · Flutter & Node.js', cls: 'boot-hi', delay: 3500 },
     { text: '  Tunisia 🇹🇳  |  Available for opportunities', cls: 'boot-dim', delay: 3650 },
     { text: '', cls: '', delay: 3730 },
     { text: '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', cls: 'boot-dim', delay: 3800 },
@@ -119,7 +119,7 @@ const EN: I18nDict = {
   term_hint: 'Try: <span class="hl-cyan">help</span> | <span class="hl-cyan">about</span> | <span class="hl-cyan">projects</span> | <span class="hl-cyan">skills</span> | <span class="hl-cyan">contact</span> | <span class="hl-cyan">hack</span> | <span class="hl-cyan">game</span> | <span class="hl-cyan">switch-mode</span>',
   term_cleared: 'Terminal cleared.',
   about_name: 'Mohamed Habib Msahel',
-  about_role: 'Full-Stack & Mobile Developer',
+  about_role: 'Mobile Engineer · Flutter & Node.js',
   about_loc: 'Tunisia 🇹🇳',
   about_status: '● Available for opportunities',
   about_bio: [
@@ -189,7 +189,7 @@ const EN: I18nDict = {
     os: 'HabibOS v3.0 x86_64',
     host: 'Developer MacBook Pro',
     kernel: '5.19.0-habib',
-    uptime: '2+ years coding',
+    uptime: '5+ years with Flutter',
     shell: 'habib-sh 3.0.0',
     cpu: 'Brain @ ∞ GHz',
     memory: 'Barely enough',
@@ -214,7 +214,7 @@ const FR: I18nDict = {
   nav_contact: './contact',
   boot_lines: EN.boot_lines.map(l =>
     l.text.startsWith('Booting') ? { ...l, text: 'Démarrage de HabibOS v3.0...' }
-    : l.text.includes('Mohamed Habib Msahel — Full') ? { ...l, text: '  Mohamed Habib Msahel — Développeur Full-Stack & Mobile' }
+    : l.text.includes('Mohamed Habib Msahel —') ? { ...l, text: '  Mohamed Habib Msahel — Ingénieur Mobile · Flutter & Node.js' }
     : l.text.includes('Tunisia') ? { ...l, text: '  Tunisie 🇹🇳  |  Disponible pour des opportunités' }
     : l.text.includes('Available') ? { ...l, text: '  Disponible pour des opportunités' }
     : l
@@ -225,7 +225,7 @@ const FR: I18nDict = {
   term_welcome: 'Bienvenue sur <span class="hl-green">HabibOS v3.0</span> — Tapez <span class="hl-green">help</span> pour commencer.',
   term_hint: 'Essayez: <span class="hl-cyan">help</span> | <span class="hl-cyan">about</span> | <span class="hl-cyan">projects</span> | <span class="hl-cyan">skills</span> | <span class="hl-cyan">contact</span> | <span class="hl-cyan">hack</span> | <span class="hl-cyan">game</span> | <span class="hl-cyan">switch-mode</span>',
   term_cleared: 'Terminal effacé.',
-  about_role: 'Développeur Full-Stack & Mobile',
+  about_role: 'Ingénieur Mobile · Flutter & Node.js',
   about_loc: 'Tunisie 🇹🇳',
   about_status: '● Disponible pour des opportunités',
   about_bio: [
@@ -295,7 +295,7 @@ const AR: I18nDict = {
   nav_contact: './التواصل',
   boot_lines: EN.boot_lines.map(l =>
     l.text.startsWith('Booting') ? { ...l, text: 'جاري تشغيل HabibOS v3.0...' }
-    : l.text.includes('Mohamed Habib Msahel — Full') ? { ...l, text: '  محمد حبيب مساهل — مطوّر Full-Stack ومحمول' }
+    : l.text.includes('Mohamed Habib Msahel —') ? { ...l, text: '  محمد حبيب مساهل — مهندس تطبيقات محمولة · Flutter و Node.js' }
     : l.text.includes('Tunisia') ? { ...l, text: '  تونس 🇹🇳  |  متاح للفرص الوظيفية' }
     : l
   ),
@@ -306,7 +306,7 @@ const AR: I18nDict = {
   term_hint: 'جرّب: <span class="hl-cyan">help</span> | <span class="hl-cyan">about</span> | <span class="hl-cyan">projects</span> | <span class="hl-cyan">skills</span> | <span class="hl-cyan">contact</span> | <span class="hl-cyan">hack</span> | <span class="hl-cyan">game</span>',
   term_cleared: 'تم مسح الطرفية.',
   about_name: 'محمد حبيب مساهل',
-  about_role: 'مطوّر Full-Stack وتطبيقات محمولة',
+  about_role: 'مهندس تطبيقات محمولة · Flutter و Node.js',
   about_loc: 'تونس 🇹🇳',
   about_status: '● متاح للفرص الوظيفية',
   about_bio: [
