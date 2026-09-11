@@ -1,25 +1,33 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+// Required for relative image paths below to resolve to absolute URLs.
+// Without it Next falls back to http://localhost:3000 and every social
+// preview (LinkedIn, WhatsApp, Slack) renders with a broken image.
 export const metadata: Metadata = {
-  title: "Mohamed Habib Msahel — HabibOS v3.0 | Full-Stack & Mobile Developer",
+  metadataBase: new URL("https://mohamedhabibmsahel.github.io"),
+  title: "Mohamed Habib Msahel — Mobile Engineer | Flutter & Node.js",
   description:
-    "Interactive hacker terminal portfolio. Full-stack & mobile developer specializing in React, Node.js, Flutter. Tunisia 🇹🇳 | Available for opportunities.",
+    "Mobile engineer specializing in Flutter & Dart. Production iOS/Android apps backed by Node.js APIs. Tunis, Tunisia 🇹🇳 | Available for opportunities.",
   keywords: [
-    "Mohamed Habib Msahel", "developer", "portfolio", "full-stack", "mobile",
-    "React", "Node.js", "Flutter", "Tunisia", "hacker terminal",
+    "Mohamed Habib Msahel", "Flutter developer", "mobile engineer", "Dart",
+    "Node.js", "React", "Next.js", "cross-platform", "Tunisia", "portfolio",
   ],
   authors: [{ name: "Mohamed Habib Msahel" }],
   openGraph: {
-    title: "HabibOS v3.0 — Hacker Terminal Portfolio",
-    description: "Enter the system. Discover the developer.",
+    title: "Mohamed Habib Msahel — Mobile Engineer | Flutter & Node.js",
+    description:
+      "Mobile engineer specializing in Flutter & Dart. Production iOS/Android apps backed by Node.js APIs. Based in Tunis, Tunisia — open to opportunities.",
     url: "https://mohamedhabibmsahel.github.io/portfolio-mohamed-habib-msahel/",
     siteName: "HabibOS",
     images: [
       {
-        url: "/portfolio-mohamed-habib-msahel/assets/avatar_hacker.png", // Fallback to avatar if no hero exists
-        width: 800,
-        height: 800,
+        // 1200x627 landscape — the ratio LinkedIn/Twitter render as a large card.
+        // A square image is downscaled into a small thumbnail instead.
+        url: "/portfolio-mohamed-habib-msahel/assets/og-card.png",
+        width: 1200,
+        height: 627,
+        alt: "Mohamed Habib Msahel — Mobile Engineer | Flutter & Dart",
       },
     ],
     locale: "en_US",
@@ -27,9 +35,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "HabibOS v3.0 | Mohamed Habib Msahel",
-    description: "Interactive hacker terminal portfolio. Enter if you dare.",
-    images: ["/portfolio-mohamed-habib-msahel/assets/avatar_hacker.png"],
+    title: "Mohamed Habib Msahel — Mobile Engineer | Flutter & Node.js",
+    description:
+      "Mobile engineer specializing in Flutter & Dart. Production iOS/Android apps backed by Node.js APIs.",
+    images: ["/portfolio-mohamed-habib-msahel/assets/og-card.png"],
   },
 };
 

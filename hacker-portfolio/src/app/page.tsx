@@ -82,7 +82,7 @@ export default function Home() {
     if (appState === 'boot') {
       document.title = "HabibOS [BOOTING...]";
     } else if (appState === 'recruiter') {
-      document.title = "Mohamed Habib Msahel | Full-Stack Portfolio";
+      document.title = "Mohamed Habib Msahel | Mobile Engineer — Flutter & Node.js";
     } else {
       document.title = "HabibOS 3.0 [TERMINAL]";
     }

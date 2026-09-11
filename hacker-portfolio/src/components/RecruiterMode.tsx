@@ -371,7 +371,7 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
           {[
             {
               period: lang === 'fr' ? 'Août 2025 – Présent' : lang === 'ar' ? 'أغسطس 2025 – الحاضر' : 'Aug 2025 – Present',
-              title: lang === 'fr' ? 'Développeur Full-Stack Mobile' : lang === 'ar' ? 'مطور Full-Stack' : 'Full Stack Mobile Developer',
+              title: lang === 'fr' ? 'Ingénieur Développement Mobile' : lang === 'ar' ? 'مهندس تطوير تطبيقات محمولة' : 'Mobile Engineer',
               org: 'Lebosphore',
               desc: lang === 'fr' ? 'Développement d\'applications mobiles hybrides avec Flutter et conception du backend avec Node.js & MySQL.'
                 : lang === 'ar' ? 'تطوير تطبيقات محمولة باستخدام Flutter وبناء الخلفية باستخدام Node.js و MySQL.'
