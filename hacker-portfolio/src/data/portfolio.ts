@@ -18,8 +18,6 @@ export const PROJECTS: Project[] = [
     name: 'Easy Dispatching System',
     badge: 'ACTIVE',
     tags: ['Node.js', 'React', 'Flutter', 'PostgreSQL', 'JWT'],
-    github: 'https://github.com/mohamedhabibmsahel',
-    demo: '#',
     desc: {
       en: 'Full-stack logistics & warehouse management platform with real-time tracking, role-based access control, and optimized dispatch workflows.',
       fr: "Plateforme full-stack de gestion logistique et d'entrepôt avec suivi en temps réel, contrôle d'accès basé sur les rôles et flux de travail optimisés.",
@@ -32,7 +30,6 @@ export const PROJECTS: Project[] = [
     name: 'Mobile Inventory Scanner',
     badge: 'ACTIVE',
     tags: ['Flutter', 'Dart', 'Zebra SDK', 'SQLite', 'BLE'],
-    github: 'https://github.com/mohamedhabibmsahel',
     desc: {
       en: 'Industrial barcode scanner app for Zebra devices built with Flutter. Multi-zone inventory management with offline sync capabilities.',
       fr: "Application de scanner de code-barres industriel pour appareils Zebra. Gestion d'inventaire multi-zones avec synchronisation hors ligne.",
@@ -45,8 +42,8 @@ export const PROJECTS: Project[] = [
     name: 'HabibOS Portfolio',
     badge: 'LIVE',
     tags: ['Next.js', 'React', 'TypeScript', 'Framer Motion', 'Web Audio'],
-    github: 'https://github.com/mohamedhabibmsahel',
-    demo: '#',
+    github: 'https://github.com/mohamedhabibmsahel/portfolio-mohamed-habib-msahel',
+    demo: 'https://mohamedhabibmsahel.github.io/portfolio-mohamed-habib-msahel/',
     desc: {
       en: 'This portfolio — a cinematic hacker terminal experience. Matrix rain, interactive shell, mini-game, dual-mode UI, and Web Audio sound engine.',
       fr: 'Ce portfolio — une expérience cinématographique de terminal hacker. Pluie Matrix, shell interactif, mini-jeu, UI dual-mode et moteur sonore.',
@@ -59,7 +56,6 @@ export const PROJECTS: Project[] = [
     name: 'Auth Microservice',
     badge: 'MAINTAINED',
     tags: ['Node.js', 'Express', 'JWT', 'Redis', 'Docker'],
-    github: 'https://github.com/mohamedhabibmsahel',
     desc: {
       en: 'JWT + OAuth2 authentication microservice with refresh token rotation, rate limiting, and multi-tenant support.',
       fr: "Microservice d'authentification JWT + OAuth2 avec rotation de token, limitation de débit et support multi-locataire.",
@@ -72,8 +68,6 @@ export const PROJECTS: Project[] = [
     name: 'Real-Time Analytics Dashboard',
     badge: 'ACTIVE',
     tags: ['React', 'WebSocket', 'Chart.js', 'Node.js', 'MongoDB'],
-    github: 'https://github.com/mohamedhabibmsahel',
-    demo: '#',
     desc: {
       en: 'Live WebSocket-powered dashboard with dynamic charts, KPI tracking, and role-based data visibility.',
       fr: 'Tableau de bord en temps réel alimenté par WebSocket avec graphiques dynamiques et suivi KPI.',
@@ -86,7 +80,6 @@ export const PROJECTS: Project[] = [
     name: 'API Gateway & Rate Limiter',
     badge: 'MAINTAINED',
     tags: ['Node.js', 'Redis', 'Nginx', 'Docker', 'Prometheus'],
-    github: 'https://github.com/mohamedhabibmsahel',
     desc: {
       en: 'Custom API gateway with request routing, rate limiting (token bucket), circuit breakers, and request logging.',
       fr: 'Passerelle API personnalisée avec routage, limitation de débit (seau à jetons), disjoncteurs et journalisation.',
@@ -99,6 +92,7 @@ export const PROJECTS: Project[] = [
     name: 'Witch Undo The Spell',
     badge: 'ACADEMIC',
     tags: ['C', 'SDL 1.2', 'Linux', 'Photoshop'],
+    github: 'https://github.com/mohamedhabibmsahel/witch-undo-the-spell',
     demo: 'https://www.youtube-nocookie.com/embed/la9lIbC8o2o',
     media: { type: 'video', url: 'https://www.youtube-nocookie.com/embed/la9lIbC8o2o' },
     desc: {
@@ -113,8 +107,8 @@ export const PROJECTS: Project[] = [
     name: 'Library Management System',
     badge: 'ACADEMIC',
     tags: ['C++', 'QT Framework', 'SQL', 'Arduino'],
-    github: 'https://github.com/mohamedhabibmsahel',
-    media: { type: 'image', url: '/assets/Library-Management.jpeg' },
+    github: 'https://github.com/mohamedhabibmsahel/Library-managment-arduino-BrainStorm-',
+    media: { type: 'image', url: '/portfolio-mohamed-habib-msahel/assets/Library-Management.jpeg' },
     desc: {
       en: 'Desktop application for managing libraries with integrated fire and gas leak detection sensors via Arduino.',
       fr: "Application de bureau pour la gestion de bibliothèques avec des capteurs de détection d'incendie via Arduino.",
@@ -127,6 +121,7 @@ export const PROJECTS: Project[] = [
     name: 'EuroRentACar',
     badge: 'ACADEMIC',
     tags: ['PHP', 'Oracle', 'HTML/CSS', 'GitHub'],
+    github: 'https://github.com/mohamedhabibmsahel/EuroRentACar',
     demo: 'https://www.youtube-nocookie.com/embed/-_b6Y2YNlw4',
     media: { type: 'video', url: 'https://www.youtube-nocookie.com/embed/-_b6Y2YNlw4' },
     desc: {
@@ -141,8 +136,8 @@ export const PROJECTS: Project[] = [
     name: 'FanArt Platform',
     badge: 'ACADEMIC',
     tags: ['Symfony 4', 'JavaFX', 'Codename One', 'SQL'],
-    github: 'https://github.com/mohamedhabibmsahel',
-    media: { type: 'image', url: '/assets/theratre.jpeg' },
+    github: 'https://github.com/mohamedhabibmsahel/FanArtSymfony',
+    media: { type: 'image', url: '/portfolio-mohamed-habib-msahel/assets/theratre.jpeg' },
     desc: {
       en: 'Multi-platform system (Web, Mobile, Desktop) for theater management and artist scheduling.',
       fr: 'Système multi-plateforme (Web, Mobile, Bureau) pour la gestion des théâtres et la planification des artistes.',
@@ -155,8 +150,8 @@ export const PROJECTS: Project[] = [
     name: 'Khadamni',
     badge: 'ACADEMIC',
     tags: ['Node.js', 'Express', 'MongoDB', 'Docker', 'Android Studio'],
-    github: 'https://github.com/mohamedhabibmsahel',
-    media: { type: 'image', url: '/assets/khadamni.jpeg' },
+    github: 'https://github.com/mohamedhabibmsahel/khadamni-front-android',
+    media: { type: 'image', url: '/portfolio-mohamed-habib-msahel/assets/khadamni.jpeg' },
     desc: {
       en: 'Native mobile app connecting users with public service providers (plumbers, carpenters, etc.) with online payment integration.',
       fr: "Application mobile native connectant les utilisateurs à des prestataires de services publics avec paiement en ligne.",
@@ -169,8 +164,8 @@ export const PROJECTS: Project[] = [
     name: 'SportPal',
     badge: 'ACADEMIC',
     tags: ['Flutter', 'Node.js', 'MongoDB', 'Heroku', 'Angular'],
-    github: 'https://github.com/mohamedhabibmsahel',
-    media: { type: 'image', url: '/assets/sportpal.jpeg' },
+    github: 'https://github.com/mohamedhabibmsahel/SportpalWeb',
+    media: { type: 'image', url: '/portfolio-mohamed-habib-msahel/assets/sportpal.jpeg' },
     desc: {
       en: 'Cross-platform mobile application for sports match-making, tournament organization, and player management.',
       fr: "Application mobile multiplateforme pour la mise en relation de partenaires sportifs et l'organisation de tournois.",
@@ -192,22 +187,24 @@ export const PROJECTS: Project[] = [
   },
 ];
 
+// Ordered deliberately: mobile first. This list is what a recruiter scanning
+// for a Flutter specialist reads, so Flutter/Dart leads and web sits below it.
 export const SKILLS = [
-  { pid: 1001, name: 'JavaScript / TypeScript', levelKey: 'expert',       pct: 92 },
-  { pid: 1002, name: 'Node.js / Express',        levelKey: 'expert',       pct: 90 },
-  { pid: 1003, name: 'React / Next.js',           levelKey: 'expert',       pct: 88 },
-  { pid: 1004, name: 'Flutter / Dart',            levelKey: 'advanced',     pct: 85 },
-  { pid: 1005, name: 'SQL / PostgreSQL',          levelKey: 'advanced',     pct: 83 },
-  { pid: 1006, name: 'REST / GraphQL APIs',       levelKey: 'expert',       pct: 91 },
-  { pid: 1007, name: 'Docker / DevOps',           levelKey: 'advanced',     pct: 75 },
+  { pid: 1001, name: 'Flutter / Dart',            levelKey: 'expert',       pct: 93 },
+  { pid: 1002, name: 'JavaScript / TypeScript',   levelKey: 'expert',       pct: 92 },
+  { pid: 1003, name: 'REST / GraphQL APIs',       levelKey: 'expert',       pct: 91 },
+  { pid: 1004, name: 'Node.js / Express',         levelKey: 'expert',       pct: 90 },
+  { pid: 1005, name: 'React / Next.js',           levelKey: 'advanced',     pct: 85 },
+  { pid: 1006, name: 'SQL / PostgreSQL',          levelKey: 'advanced',     pct: 83 },
+  { pid: 1007, name: 'Git / CI-CD',               levelKey: 'advanced',     pct: 82 },
   { pid: 1008, name: 'MongoDB / Redis',           levelKey: 'advanced',     pct: 78 },
-  { pid: 1009, name: 'Git / CI-CD',              levelKey: 'advanced',     pct: 82 },
-  { pid: 1010, name: 'System Design',            levelKey: 'intermediate', pct: 70 },
+  { pid: 1009, name: 'Docker / DevOps',           levelKey: 'advanced',     pct: 75 },
+  { pid: 1010, name: 'System Design',             levelKey: 'intermediate', pct: 70 },
 ];
 
 export const TECH_TAGS = [
-  'JavaScript', 'TypeScript', 'Python', 'Node.js', 'Express', 'React', 'Next.js',
-  'Flutter', 'Dart', 'HTML5', 'CSS3', 'SQL', 'PostgreSQL', 'MongoDB', 'Redis',
-  'Docker', 'Nginx', 'Git', 'GitHub Actions', 'JWT', 'REST', 'GraphQL',
-  'WebSockets', 'Linux', 'VS Code', 'Figma',
+  'Flutter', 'Dart', 'iOS', 'Android', 'JavaScript', 'TypeScript', 'Node.js',
+  'Express', 'React', 'Next.js', 'Python', 'HTML5', 'CSS3', 'SQL', 'PostgreSQL',
+  'MongoDB', 'Redis', 'Docker', 'Nginx', 'Git', 'GitHub Actions', 'JWT', 'REST',
+  'GraphQL', 'WebSockets', 'Linux', 'VS Code', 'Figma',
 ];
