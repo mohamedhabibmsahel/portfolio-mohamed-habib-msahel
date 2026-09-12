@@ -32,6 +32,7 @@ export const PROJECTS: Project[] = [
     name: 'Bosphore Statistics',
     badge: 'LIVE',
     tags: ['Flutter', 'Dart', 'GetX', 'fl_chart', 'Excel Export'],
+    demo: 'https://apps.apple.com/tn/app/bosphore-statistics/id6788696519',
     media: { type: 'image', url: '/portfolio-mohamed-habib-msahel/assets/app-statistics.jpg' },
     desc: {
       en: 'iOS reporting app for management: interactive dashboards, KPI charts and one-tap Excel export. 27 screens, shipped and maintained through v1.2.2.',
@@ -45,6 +46,7 @@ export const PROJECTS: Project[] = [
     name: 'Bosphore Dispatching',
     badge: 'LIVE',
     tags: ['Flutter', 'Node.js', 'Sequelize', 'MySQL', 'Socket.io'],
+    demo: 'https://apps.apple.com/tn/app/bosphore-dispatching/id6783056595',
     media: { type: 'image', url: '/portfolio-mohamed-habib-msahel/assets/app-dispatching.jpg' },
     desc: {
       en: 'Logistics and delivery dispatch app — barcode scanning, GPS tracking and offline-first SQLite sync, backed by a Node.js/Sequelize API with Socket.io real-time updates. 32 screens.',
@@ -58,6 +60,7 @@ export const PROJECTS: Project[] = [
     name: 'Le Bosphore RH',
     badge: 'LIVE',
     tags: ['Flutter', 'Node.js', 'Prisma', 'MariaDB', 'Firebase'],
+    demo: 'https://apps.apple.com/tn/app/le-bosphore-rh/id6797465768',
     media: { type: 'image', url: '/portfolio-mohamed-habib-msahel/assets/app-rh.jpg' },
     desc: {
       en: 'Internal HR platform — employee management, geolocated clock-in, document handling and push notifications. 44 screens, backed by a Prisma/MariaDB API.',
