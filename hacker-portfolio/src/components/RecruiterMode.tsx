@@ -372,10 +372,10 @@ export default function RecruiterMode({ lang, onLangChange, onSwitchBack, classi
             {
               period: lang === 'fr' ? 'Août 2025 – Présent' : lang === 'ar' ? 'أغسطس 2025 – الحاضر' : 'Aug 2025 – Present',
               title: lang === 'fr' ? 'Ingénieur Développement Mobile' : lang === 'ar' ? 'مهندس تطوير تطبيقات محمولة' : 'Mobile Engineer',
-              org: 'Lebosphore',
-              desc: lang === 'fr' ? 'Développement d\'applications mobiles hybrides avec Flutter et conception du backend avec Node.js & MySQL.'
-                : lang === 'ar' ? 'تطوير تطبيقات محمولة باستخدام Flutter وبناء الخلفية باستخدام Node.js و MySQL.'
-                  : 'Developed hybrid mobile applications with Flutter and designed backend architecture using Node.js & MySQL.',
+              org: 'Microzed Tunisie (ex-Le Bosphore)',
+              desc: lang === 'fr' ? '5 applications Flutter (~137 écrans) et les 4 backends Node.js/MySQL qui les alimentent. 4 applications iOS livrées en production, dont une publiée sur l\'App Store.'
+                : lang === 'ar' ? '5 تطبيقات Flutter (حوالي 137 شاشة) و4 واجهات خلفية بـ Node.js و MySQL. 4 تطبيقات iOS في الإنتاج، أحدها منشور على App Store.'
+                  : 'Five Flutter apps (~137 screens) and the four Node.js/MySQL backends behind them. Four iOS apps shipped to production, one published on the App Store.',
               type: 'work',
             },
             {
